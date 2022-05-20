@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<ui:composition template="/template/page-standard.xhtml"
+     xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:h="http://java.sun.com/jsf/html"
+     xmlns:f="http://java.sun.com/jsf/core"
+     xmlns:ui="http://java.sun.com/jsf/facelets">>
+
+	 <f:metadata>
+		 <f:viewParam name="id" value="#{modelCategorie.courant.id}" />
+		 <f:viewAction action="#{modelCategorie.actualiserCourant()}" />
+	 </f:metadata>
+
+     <ui:define name="titre">Catégorie</ui:define>
+
+    <ui:define name="contenu">
+	
+	<h:form>
+		<table class="form">
+			<tr>
+				<td>
+					<h:outputLabel for="id">Id :</h:outputLabel>				
+				</td>
+				<td>
+					<h:inputText id="id" size="5" readonly="true"
+						value="#{modelCategorie.courant.id}" />
+					<br /><h:message for="id" errorClass="error"/>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<h:outputLabel for="libelle">Libellé :</h:outputLabel>				
+				</td>
+				<td>
+					<h:inputText id="libelle" size="25" 
+						value="#{modelCategorie.courant.libelle}" />
+					<br /><h:message for="libelle" errorClass="error"/>
+				</td>
+			</tr>
+		</table>
+		
+		<br /> 
+		<h:commandButton value="Valider" 
+			action="#{modelCategorie.validerMiseAJour()}" />
+		<h:button value="Retour" outcome="catégories" />
+	</h:form>
+
+	</ui:define>
+
+</ui:composition>

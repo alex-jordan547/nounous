@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<h:outputStylesheet name="styles.css" library="css" />
+	<title><ui:insert name="titre">Titre</ui:insert></title>
+</h:head>
+<h:body>
+<ui:debug hotkey="x" rendered="#{initParam['javax.faces.PROJECT_STAGE'] == 'Development'}"/>
+<div id="body">
+
+<div id="header">
+	<h:outputText value="&nbsp;" rendered="#{not compteActif.loggedIn}" />
+	<h:form rendered="#{compteActif.loggedIn}">
+		<h:link outcome="personnes" value="Personnes" rendered="#{compteActif.utilisateur }" />
+		<h:panelGroup rendered="#{compteActif.admininstrateur}">
+			<h:link outcome="catégories" value="Catégories"  />
+			<h:link outcome="comptes" value="Comptes"  />
+		</h:panelGroup>
+		<h:commandLink action="#{compteActif.disconnect()}" value="Déconnexion"  />
+	</h:form>
+</div>
+
+<h1><ui:insert name="titre">Titre absent</ui:insert></h1>
+
+<h:messages errorClass="error" globalOnly="false" infoClass="info" styleClass="messages" warnClass="warning" />
+
+<div id="content">
+	<ui:insert name="contenu">
+		Contenu absent
+	</ui:insert>
+</div>
+
+<div id="footer">©
+	<h:outputText value="#{utilJsf.now()}" >
+		<f:convertDateTime pattern="yyyy" />
+	</h:outputText>
+ 	- #{initParam['site.name']}
+</div>
+
+</div></h:body>
+</html>

@@ -1,0 +1,172 @@
+@charset "UTF-8";
+
+* {
+	font-family: sans-serif;
+	color: black;
+}
+
+body, #body {
+	margin: 0;
+	background-color: white;
+	text-align: center;
+}
+
+
+#header  {
+	padding: 6px 0;
+	text-align: center;
+	background-color: YellowGreen;
+}
+
+#header a:not(:last-child), #header span:not(:last-child) {
+	margin-right: 1em ;
+}
+
+#content {
+	margin: 25px 0;
+	display: flex;
+  	align-items: center;  
+	flex-direction: column;		
+}
+
+#content > h1:first-child {
+	margin-top: 0;
+}
+
+#footer {
+	padding: 6px 0;
+	text-align: center;
+	background-color: YellowGreen;
+}
+
+
+form {
+	display: inline;
+}
+
+table {
+	margin: 0 auto;
+}
+
+td {
+	vertical-align: top;
+	text-align: left;
+}
+
+ul.messages {
+	width: 320px;
+	margin: 23px auto 25px;
+	padding: 5px 8px;
+	border: thin solid black;
+	background-color: LemonChiffon;
+	list-style-type: none;
+}
+li.fatal, span.fatal {
+	color: red;
+}
+li.error, span.error {
+	color: red;
+}
+li.warning, span.warning {
+	color: #804000;
+}
+li.info, span.info {
+	color: #006a00;
+}
+
+table.messages td {
+	padding: 0;
+	border:none;
+	text-align: center;
+}
+
+table.form {
+	border-spacing: 5px 10px;
+}
+
+table.form td {
+	vertical-align: top;
+	text-align: left;
+}
+
+table.form table {
+	margin: 0;
+}
+
+
+table.liste {
+	border: thin solid black;
+	border-collapse: collapse;
+	margin: 0 auto;
+}
+
+table.liste tr.impair {
+    background:none repeat scroll 0 0 #ffffff;
+    border-top:1px solid #BBBBBB;
+}
+
+table.liste tr.pair {
+    background:none repeat scroll 0 0 #e9f3d1;
+    border-top:1px solid #BBBBBB;
+}
+
+table.liste th, table.liste td {
+	padding: 2px 10px;
+	border: thin solid black;
+	vertical-align: middle;
+}
+
+table.liste th  {
+	background-color: YellowGreen;
+}
+
+table.liste td  {
+	text-align: left;
+}
+
+table.liste td.left, .left  {
+	text-align: left;
+}
+
+table.liste td.center, .center  {
+	text-align: center;
+}
+
+table.liste td.right, .right  {
+	text-align: right;
+}
+
+table.liste input[type=text] {
+	vertical-align: middle;
+	padding: 0 2px;
+	width: 96%;
+}
+
+
+input {
+	font-size: 0.85em;
+}
+
+input[type=button], input[type=submit], input[type=reset] {
+	margin: 0 0.4em;
+}
+
+input.image-action {
+	width: 1.3em;
+}
+input.image-action:not(:last-child) {
+	margin-right: 0.6em;
+}
+
+
+table.home {
+	border-collapse: collapse;
+}
+
+table.home td {
+	 border: 4px solid black;
+	 text-align: center;
+	 padding: 10px;
+}
+
+	

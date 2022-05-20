@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE jboss-web PUBLIC "-//JBoss//DTD Web Application 5.0//EN" "jar:file:/C:/dev22/eclipse-jee-2021-06/eclipse/../../eclipse-p2/pool/plugins/org.jboss.tools.as.catalog_3.9.105.v20210317-1837.jar!/schema/dtd/jboss-web_5_0.dtd">
+<jboss-web>
+ 
+<!--
+ 	<security-domain>secu-web-nounous</security-domain>
+ -->	
+	
+</jboss-web>

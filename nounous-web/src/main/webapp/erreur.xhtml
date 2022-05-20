@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</h:head>
+<h:body><div id="body">
+
+ <ui:composition template="/template/page-standard.xhtml">
+
+    <ui:define name="titre">Erreur</ui:define>
+
+    <ui:define name="contenu">
+
+	<ui:fragment rendered="#{ not empty requestScope['javax.servlet.error.status_code'] }">
+		<ui:fragment rendered="#{ requestScope['javax.servlet.error.status_code'] == 404 }">
+			<ul class="messages"><li class="error">Page non trouvée : <br/> ${requestScope['javax.servlet.error.request_uri']}</li></ul>
+		</ui:fragment>
+		<ui:fragment rendered="#{ requestScope['javax.servlet.error.status_code'] == 500 }">
+			<ul class="messages"><li class="error">Erreur interne du serveur web</li></ul>
+		</ui:fragment>
+	</ui:fragment>
+	<ui:fragment rendered="#{ empty requestScope['javax.servlet.error.status_code'] }">
+		<ui:fragment rendered="#{not empty requestScope['javax.servlet.error.message'] and empty requestScope['javax.servlet.error.exception_type']}">
+			<ul class="messages"><li class="error">${requestScope['javax.servlet.error.message']}</li></ul>
+		</ui:fragment>
+		<ui:fragment rendered="#{empty facesContext.messageList and ( empty requestScope['javax.servlet.error.message'] or not empty requestScope['javax.servlet.error.exception_type'] ) }">
+			<ul class="messages"><li class="error">Panne de l'application.</li><li>Contactez l'administrateur.</li></ul>
+		</ui:fragment>
+	</ui:fragment>
+	<br />
+	<br />
+	<h:link outcome="connexion" value="Retour à la page d'eccueil" />
+	</ui:define>
+
+</ui:composition>
+
+</div></h:body>
+</html>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PROCESS model-entity="JSFProcess">
+ <PROCESS-ITEM NAME="rules:#pages#user#personne#liste.xhtml"
+  PATH="/pages/user/personne/liste.xhtml" SHAPE="304,184,50,25"
+  model-entity="JSFProcessGroup" persistent="true"/>
+ <PROCESS-ITEM NAME="rules:*" PATH="*" SHAPE="32,17,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:*:0" NAME="item" PATH="*" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="connexion::#connexion.xhtml" NAME="output"
+    PATH="/connexion.xhtml" SHAPE="-1,24"
+    TARGET="rules:#connexion.xhtml" TITLE="connexion" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="catégories::#pages#admin#categorie#liste.xhtml" NAME="output1"
+    PATH="/pages/admin/categorie/liste.xhtml" SHAPE="-1,32"
+    TARGET="rules:#pages#admin#categorie#liste.xhtml" TITLE="catégories" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="comptes::#pages#admin#compte#liste.xhtml"
+    NAME="output2" PATH="/pages/admin/compte/liste.xhtml" SHAPE="-1,40"
+    TARGET="rules:#pages#admin#compte#liste.xhtml" TITLE="comptes" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="personnes::#pages#user#personne#liste.xhtml"
+    NAME="output3" PATH="/pages/user/personne/liste.xhtml" SHAPE="-1,16"
+    TARGET="rules:#pages#user#personne#liste.xhtml" TITLE="personnes" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="info::#pages#info.xhtml" NAME="output4"
+    PATH="/pages/info.xhtml" TARGET="rules:#pages#info.xhtml"
+    TITLE="info" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#connexion.xhtml" PATH="/connexion.xhtml"
+  SHAPE="320,40,50,25" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#pages#admin#compte#liste.xhtml"
+  PATH="/pages/admin/compte/liste.xhtml" SHAPE="328,128,50,25" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#pages#admin#categorie#liste.xhtml"
+  PATH="/pages/admin/categorie/liste.xhtml" SHAPE="320,88,50,25" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#pages#info.xhtml" PATH="/pages/info.xhtml"
+  SHAPE="312,240,50,25" model-entity="JSFProcessGroup" persistent="true"/>
+</PROCESS>

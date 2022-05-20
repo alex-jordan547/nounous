@@ -1,0 +1,105 @@
+@charset "UTF-8";
+
+* {
+	font-family: sans-serif;
+}
+
+body, #body {
+	text-align: center;
+}
+
+form {
+	display: inline;
+}
+
+table {
+	margin: 0 auto;
+}
+
+td {
+	vertical-align: top;
+	text-align: left;
+}
+
+ul.messages {
+	width: 320px;
+	margin: 23px auto 25px;
+	padding: 5px 8px;
+	border: thin solid black;
+	background-color: LemonChiffon;
+	list-style-type: none;
+}
+
+
+table.messages td {
+	padding: 0;
+	border:none;
+	text-align: center;
+}
+
+
+table.form {
+	border-spacing: 5px 15px;
+}
+
+table.form td {
+	vertical-align: top;
+	text-align: left;
+}
+
+table.form table {
+	margin: 0;
+}
+
+
+table.liste {
+	border: thin solid black;
+	border-collapse: collapse;
+	margin: 0 auto;
+}
+
+table.liste th, table.liste td {
+	padding: 2px 10px;
+	border: thin solid black;
+	vertical-align: middle;
+}
+
+table.liste td  {
+	text-align: left;
+}
+
+table.liste input[type=text] {
+	vertical-align: middle;
+	padding: 0 2px;
+	width: 96%;
+}
+
+img.image-action {
+	vertical-align: middle;
+	padding: 0 2px;
+}
+input.image-action {
+	xvertical-align: middle;
+	margin: 0 2px;
+}
+
+input[type=submit] {
+	margin: 0 2px;
+}
+
+#header  {
+	margin: 0 0 25px 0;
+	text-align: center;
+	background-color: YellowGreen;
+}
+
+#header a {
+	margin: 0 10px;
+}
+
+#footer {
+	margin: 45px 0 0  0;
+	text-align: center;
+	background-color: YellowGreen;
+}
+	

@@ -1,0 +1,119 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<ui:composition template="/template/page-standard.xhtml"
+     xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:h="http://java.sun.com/jsf/html"
+     xmlns:f="http://java.sun.com/jsf/core"
+     xmlns:ui="http://java.sun.com/jsf/facelets">>
+
+	<f:metadata>
+		<f:viewParam name="id" value="#{modelPersonne.courant.id}" />
+		<f:viewAction action="#{modelPersonne.actualiserCourant()}" />
+	</f:metadata>
+
+    <ui:define name="titre">Personne</ui:define>
+
+    <ui:define name="contenu">
+	
+	<h:form>
+		<table class="form">
+			<tr>
+				<td>
+					<h:outputLabel for="id">Id :</h:outputLabel>				
+				</td>
+				<td>
+					<h:inputText id="id" size="5" readonly="true"
+						value="#{modelPersonne.courant.id}" />
+					<br /><h:message for="id" errorClass="error"/>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<h:outputLabel for="nom">Nom :</h:outputLabel>				
+				</td>
+				<td>
+					<h:inputText id="nom" size="25" 
+						value="#{modelPersonne.courant.nom}" />
+					<br /><h:message for="nom" errorClass="error"/>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<h:outputLabel for="prenom">Prénom :</h:outputLabel>				
+				</td>
+				<td>
+					<h:inputText id="prenom" size="25" 
+						value="#{modelPersonne.courant.prenom}" />
+					<br /><h:message for="prenom" errorClass="error"/>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<h:outputLabel for="categorie">Categorie :</h:outputLabel>				
+				</td>
+				<td>
+					<h:selectOneMenu id="categorie" 
+						value="#{modelPersonne.courant.categorie}" 
+						converter="#{converterCategorie}">
+						<f:selectItems value="#{modelCategorie.liste}"  />
+					</h:selectOneMenu>
+					<br /><h:message for="categorie" errorClass="error"/>
+				</td>
+			</tr>
+		</table>
+		
+		<br />
+		<h:dataTable id="tableTelephones" styleClass="liste" 
+			value="#{modelPersonne.courant.telephones}" 
+			var="telephone" 
+			style="width:350px">
+		
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Id" />
+				</f:facet>
+				#{telephone.id}
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Libellé" />
+				</f:facet>
+				<h:inputText id="telLib" value="#{telephone.libelle}" />
+				<br /><h:message for="telLib" errorClass="error"/>
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Numéro" />
+				</f:facet>
+				<h:inputText id="telNum" value="#{telephone.numero}" />
+				<br /><h:message for="telNum" errorClass="error"/>
+			</h:column>
+			
+			<h:column>
+				<h:commandButton value="Supprimer" 
+					action="#{modelPersonne.supprimerTelephone(telephone)}"
+					immediate="true" 
+					image="#{ resource['images:supprimer.png'] }" 
+					title="Supprimer"
+					styleClass="image-action"
+				>
+					<f:ajax render="@form" execute="@form" />
+				</h:commandButton>
+			</h:column>
+		</h:dataTable>
+
+		<br /> 
+		<h:commandButton value="Ajouter téléphone" 
+			action="#{modelPersonne.ajouterTelephone()}" >
+			<f:ajax render="tableTelephones" execute="tableTelephones" />
+		</h:commandButton>
+		<h:commandButton value="Valider" 
+			action="#{modelPersonne.validerMiseAJour()}">
+		</h:commandButton>
+		<h:button value="Retour" outcome="personnes" />
+	</h:form>
+
+	</ui:define>
+
+</ui:composition>
