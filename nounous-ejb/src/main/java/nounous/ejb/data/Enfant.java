@@ -11,11 +11,12 @@ import lombok.Setter;
 @Setter
 @EqualsAndHashCode(of= {"id"})
 @NoArgsConstructor
-public class Contrat {
+public class Enfant {
+	//let me write some comment tsague's computer
+	// let try to do this project and end it for real
 	private int id;
-	private Date date_debut;
-	private Date date_fin;
-	private double tarif_horaire;
-	private boolean indem_repas;
+	private String firstname;
+	private String lastanme;
+	private Date date_naissance;
 
 }

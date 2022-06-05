@@ -11,11 +11,13 @@ import lombok.Setter;
 @Setter
 @EqualsAndHashCode(of= {"id"})
 @NoArgsConstructor
-public class Contrat {
+public class User {
 	private int id;
-	private Date date_debut;
-	private Date date_fin;
-	private double tarif_horaire;
-	private boolean indem_repas;
+	private String email;
+	private String password;
+	private String firstname;
+	private String lastanme;
+	private String adress;
+	private String phone;
 
 }

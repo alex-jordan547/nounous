@@ -1,5 +1,6 @@
 package nounous.ejb.data;
 
+import java.time.LocalTime;
 import java.util.Date;
 
 import lombok.EqualsAndHashCode;
@@ -11,11 +12,10 @@ import lombok.Setter;
 @Setter
 @EqualsAndHashCode(of= {"id"})
 @NoArgsConstructor
-public class Contrat {
+public class Garder {
 	private int id;
-	private Date date_debut;
-	private Date date_fin;
-	private double tarif_horaire;
-	private boolean indem_repas;
+	private LocalTime heure_debut;
+	private LocalTime heure_fin;
+	private boolean aMange;
 
 }
