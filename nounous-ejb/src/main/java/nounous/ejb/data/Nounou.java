@@ -1,7 +1,5 @@
 package nounous.ejb.data;
 
-import java.util.Date;
-
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -11,13 +9,11 @@ import lombok.Setter;
 @Setter
 @EqualsAndHashCode(of= {"id"})
 @NoArgsConstructor
-public class User {
+public class Nounou{
 	private int id;
-	private String email;
-	private String password;
 	private String firstname;
-	private String lastanme;
+	private String lastname;
 	private String adress;
 	private String phone;
-
+	private Compte compte;
 }

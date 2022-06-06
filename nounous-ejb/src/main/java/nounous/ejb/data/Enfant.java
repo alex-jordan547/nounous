@@ -2,6 +2,7 @@ package nounous.ejb.data;
 
 import java.util.Date;
 
+import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -11,12 +12,14 @@ import lombok.Setter;
 @Setter
 @EqualsAndHashCode(of= {"id"})
 @NoArgsConstructor
+@AllArgsConstructor
 public class Enfant {
 	//let me write some comment tsague's computer
 	// let try to do this project and end it for real
 	private int id;
 	private String firstname;
 	private String lastanme;
-	private Date date_naissance;
+	private Date dateNaissance;
+	private Parent parent;
 
 }

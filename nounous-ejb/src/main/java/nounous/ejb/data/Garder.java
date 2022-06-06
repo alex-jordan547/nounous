@@ -1,7 +1,7 @@
 package nounous.ejb.data;
 
+import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.Date;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -14,8 +14,9 @@ import lombok.Setter;
 @NoArgsConstructor
 public class Garder {
 	private int id;
-	private LocalTime heure_debut;
-	private LocalTime heure_fin;
+	private LocalTime heureDebut;
+	private LocalTime heureFin;
+	private LocalDate dateJ; 
 	private boolean aMange;
-
+	private Contrat contrat;
 }

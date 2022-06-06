@@ -4,6 +4,7 @@ import static javax.persistence.FetchType.EAGER;
 import static javax.persistence.GenerationType.IDENTITY;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CollectionTable;
@@ -15,7 +16,15 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.Table;
 
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
+@Getter
+@Setter
+@EqualsAndHashCode(of= {"id"})
+@NoArgsConstructor
 @Entity
 @Table( name = "compte" )
 public class Compte  {
@@ -37,6 +46,7 @@ public class Compte  {
 	@Column( name = "email")
 	private String		email;
 	
+	
 	@ElementCollection( fetch = EAGER )
 	@CollectionTable( name = "role", joinColumns = @JoinColumn( name = "idcompte" ) )
 	@Column( name = "role")
@@ -45,82 +55,12 @@ public class Compte  {
 	
 	// Constructeurs
 	
-	public Compte() {
-	}
-
 	public Compte(int id, String pseudo, String motDePasse, String email) {
 		this.id = id;
 		this.pseudo = pseudo;
 		this.motDePasse = motDePasse;
 		this.email = email;
 	}
-	
 		
-	// Getters & setters
-	
-	public int getId() {
-		return id;
-	}
-	
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public String getPseudo() {
-		return pseudo;
-	}
-
-	public void setPseudo(String pseudo) {
-		this.pseudo = pseudo;
-	}
-
-	public String getMotDePasse() {
-		return motDePasse;
-	}
-
-	public void setMotDePasse(String motDePasse) {
-		this.motDePasse = motDePasse;
-	}
-	
-	public String getEmail() {
-		return email;
-	}
-	
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public List<String> getRoles() {
-		return roles;
-	}
-
-	public void setRoles(List<String> roles) {
-		this.roles = roles;
-	}
-
-    
-	// equals() et hashcode()
-
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + id;
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Compte other = (Compte) obj;
-		if (id != other.id)
-			return false;
-		return true;
-	}
-	
+    	
 }
