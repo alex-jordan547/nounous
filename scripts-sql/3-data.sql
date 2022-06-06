@@ -75,8 +75,8 @@ INSERT INTO enfant(Firstname,Lastname, DateNaissance, IdParent) VALUES
 ('Jerome','Marco','2020-03-23',2);
 
 INSERT INTO contrat(dateDebut,dateFin,TarifHoraire,indemRepas,IdNounou,IdEnfant) VALUES
-('2022-01-01','2023-01-01',15.55, 0.352,1,1),
-('2022-01-01','2024-01-01',20, 0.352,2,2);
+('2022-01-01','2023-01-01',15.55, 2,1,1),
+('2022-01-01','2024-01-01',20, 3,2,2);
 
 INSERT INTO garder(heureDebut,heureFin,aMange,dateJ, IdContrat) VALUES
 ('10:00:00','14:30:00',true,'2022-05-01',1),

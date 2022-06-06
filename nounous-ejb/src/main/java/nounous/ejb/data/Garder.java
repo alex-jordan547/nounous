@@ -31,6 +31,7 @@ public class Garder {
 	private LocalDate dateJ; 
 	private boolean aMange;
 	
+	
 	@ManyToOne
 	@JoinColumn(name="idContrat")
 	private Contrat contrat;
