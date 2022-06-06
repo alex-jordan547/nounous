@@ -62,9 +62,39 @@
 					<h:outputLabel for="phone">Telephone :</h:outputLabel>				
 				</td>
 				<td>
-					<h:inputText id="phone" size="50" 
+					<h:inputText id="phone" size="25" 
 						value="#{modelParent.courant.phone}" />
 					<br /><h:message for="phone" errorClass="error"/>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<h:outputLabel for="email">Email :</h:outputLabel>				
+				</td>
+				<td>
+					<h:inputText id="email" size="25" 
+						value="#{modelCompte.courant.email}" />
+					<br /><h:message for="email" errorClass="error"/>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<h:outputLabel for="pseudo">Pseudo :</h:outputLabel>				
+				</td>
+				<td>
+					<h:inputText id="pseudo" size="25" 
+						value="#{modelCompte.courant.pseudo}" />
+					<br /><h:message for="pseudo" errorClass="error"/>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<h:outputLabel for="motdepasse">Mot de passe :</h:outputLabel>				
+				</td>
+				<td>
+					<h:inputText id="motdepasse" size="25" 
+						value="#{modelCompte.courant.motDePasse}" />
+					<br /><h:message for="motdepasse" errorClass="error"/>
 				</td>
 			</tr>
 		</table>
