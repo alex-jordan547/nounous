@@ -170,6 +170,11 @@
             	<artifactId>postgresql</artifactId>
             	<version>42.3.6</version>
             </dependency>
+            <dependency>
+            	<groupId>org.projectlombok</groupId>
+            	<artifactId>lombok</artifactId>
+            	<version>1.18.22</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
     <build>
@@ -290,4 +295,10 @@
         </profile>
     </profiles>
 
+    <dependencies>
+    	<dependency>
+    		<groupId>org.projectlombok</groupId>
+    		<artifactId>lombok</artifactId>
+    	</dependency>
+    </dependencies>
 </project>

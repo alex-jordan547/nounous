@@ -8,10 +8,12 @@ import org.mapstruct.factory.Mappers;
 
 import nounous.commun.dto.DtoCategorie;
 import nounous.commun.dto.DtoCompte;
+import nounous.commun.dto.DtoParent;
 import nounous.commun.dto.DtoPersonne;
 import nounous.commun.dto.DtoTelephone;
 import nounous.ejb.data.Categorie;
 import nounous.ejb.data.Compte;
+import nounous.ejb.data.Parent;
 import nounous.ejb.data.Personne;
 import nounous.ejb.data.Telephone;
 
@@ -54,7 +56,15 @@ public interface IMapperEjb {
 	
 	DtoTelephone map( Telephone source );
 	
+	
+	// Parent
+	
+	Parent map( DtoParent source );
+	
+	DtoParent map( Parent source );
 
+	
+	
 	// Méthodes auxiliaires
 	
     @AfterMapping
