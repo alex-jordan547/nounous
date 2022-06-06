@@ -23,58 +23,55 @@
 				</td>
 				<td>
 					<h:inputText id="id" size="5" readonly="true"
-						value="#{modelCompte.courant.id}" />
+						value="#{modelParent.courant.id}" />
 					<br /><h:message for="id" errorClass="error"/>
 				</td>
 			</tr>
-			<tr>
+				<tr>
 				<td>
-					<h:outputLabel for="pseudo">Pseudo :</h:outputLabel>				
+					<h:outputLabel for="firstname">Firstname :</h:outputLabel>				
 				</td>
 				<td>
-					<h:inputText id="pseudo" size="25" 
-						value="#{modelCompte.courant.pseudo}" />
-					<br /><h:message for="pseudo" errorClass="error"/>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<h:outputLabel for="motDePasse">Mot de passe :</h:outputLabel>				
-				</td>
-				<td>
-					<h:inputText id="motDePasse" size="25" 
-						value="#{modelCompte.courant.motDePasse}" />
-					<br /><h:message for="motDePasse" errorClass="error"/>
+					<h:inputText id="firstname" size="25" 
+						value="#{modelParent.courant.firstname}" />
+					<br /><h:message for="firstname" errorClass="error"/>
 				</td>
 			</tr>
 			<tr>
 				<td>
-					<h:outputLabel for="email">Email :</h:outputLabel>				
+					<h:outputLabel for="lastname">Lastname :</h:outputLabel>				
 				</td>
 				<td>
-					<h:inputText id="email" size="50" 
-						value="#{modelCompte.courant.email}" />
-					<br /><h:message for="email" errorClass="error"/>
+					<h:inputText id="lastname" size="25" 
+						value="#{modelParent.courant.lastname}" />
+					<br /><h:message for="lastname" errorClass="error"/>
 				</td>
 			</tr>
 			<tr>
 				<td>
-					<h:outputLabel for="roles">Roles :</h:outputLabel>				
+					<h:outputLabel for="adresse">Adresse :</h:outputLabel>				
 				</td>
 				<td>
-					<h:selectManyCheckbox id="roles" layout="pageDirection" 
-						value="#{modelCompte.courant.roles}">
-						<f:selectItems value="#{utilAppli.roles}" var="role" 
-							itemLabel="#{utilAppli.getLibelléDeRole(role)}"  />
-					</h:selectManyCheckbox>
-					<h:message for="roles" errorClass="error"/>
+					<h:inputText id="adresse" size="25" 
+						value="#{modelParent.courant.adresse}" />
+					<br /><h:message for="adresse" errorClass="error"/>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<h:outputLabel for="phone">Telephone :</h:outputLabel>				
+				</td>
+				<td>
+					<h:inputText id="phone" size="50" 
+						value="#{modelParent.courant.phone}" />
+					<br /><h:message for="phone" errorClass="error"/>
 				</td>
 			</tr>
 		</table>
 
 		<br /> 
 		<h:commandButton value="Valider" 
-			action="#{modelCompte.validerMiseAJour()}" />
+			action="#{modelParent.validerMiseAJour()}" />
 		<h:button value="Retour" outcome="comptes" />
 	</h:form>
 

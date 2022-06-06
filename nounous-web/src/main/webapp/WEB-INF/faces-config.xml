@@ -6,7 +6,7 @@
   <navigation-case>
    <from-outcome>connexion</from-outcome>
    <to-view-id>/connexion.xhtml</to-view-id>
-   <redirect />
+   <redirect/>
   </navigation-case>
   <navigation-case>
    <from-outcome>catégories</from-outcome>
@@ -23,6 +23,10 @@
   <navigation-case>
    <from-outcome>info</from-outcome>
    <to-view-id>/pages/info.xhtml</to-view-id>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>formulaireParent</from-outcome>
+   <to-view-id>/pages/admin/contrat/formulaire.xhtml</to-view-id>
   </navigation-case>
  </navigation-rule>
  <application/>
