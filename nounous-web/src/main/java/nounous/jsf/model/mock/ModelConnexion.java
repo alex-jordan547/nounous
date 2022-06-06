@@ -58,7 +58,7 @@ public class ModelConnexion {
 	        
 	    	modelInfo.setTitre( "Bienvenue" );
 	    	modelInfo.setTexte( "Vous êtes connecté en tant que '" + compteActif.getPseudo() +"'.");
-
+	    	
 		    return "info";
 
 	    } else {

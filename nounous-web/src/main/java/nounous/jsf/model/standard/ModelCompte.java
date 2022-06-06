@@ -34,6 +34,7 @@ public class ModelCompte implements Serializable {
 	
 	@Inject
 	private IMapper			mapper;
+	
 
 	
 	// Getters 

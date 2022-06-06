@@ -24,6 +24,15 @@
       <!-- If you are running in a production environment, add a managed
          data source, this configuration uses the JakartaEE default data source is just for development and testing! -->
       <jta-data-source>java:/ds/nounous</jta-data-source>
+      <class>nounous.ejb.data.Compte</class>
+      <class>nounous.ejb.data.Contrat</class>
+      <class>nounous.ejb.data.Enfant</class>
+      <class>nounous.ejb.data.Garder</class>
+      <class>nounous.ejb.data.Nounou</class>
+      <class>nounous.ejb.data.Parent</class>
+      <class>nounous.ejb.data.Categorie</class>
+      <class>nounous.ejb.data.Personne</class>
+      <class>nounous.ejb.data.Telephone</class>
       <properties>
          <!--The database schema is auto created on deployment and dropped before redeploy.
              Note: the following configuration does not drop the tables on undeploy. If you prefer this, use this

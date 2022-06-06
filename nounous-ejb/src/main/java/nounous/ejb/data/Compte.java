@@ -14,6 +14,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import lombok.EqualsAndHashCode;
@@ -45,6 +46,11 @@ public class Compte  {
 	
 	@Column( name = "email")
 	private String		email;
+	
+	@OneToOne(mappedBy = "compte")
+	private Parent parent;
+	@OneToOne(mappedBy = "compte")
+	private Nounou nounou;
 	
 	
 	@ElementCollection( fetch = EAGER )
