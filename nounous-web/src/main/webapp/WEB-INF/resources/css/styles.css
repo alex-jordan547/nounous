@@ -9,13 +9,20 @@ body, #body {
 	margin: 0;
 	background-color: white;
 	text-align: center;
+	height:100vh;
+	display:flex; 
+  	flex-direction:column; 
 }
 
 
 #header  {
 	padding: 6px 0;
 	text-align: center;
-	background-color: YellowGreen;
+	margin-bottom:30px;
+	display:none;
+}
+.b-inherit{
+	display:inherit !important;
 }
 
 #header a:not(:last-child), #header span:not(:last-child) {
@@ -23,20 +30,25 @@ body, #body {
 }
 
 #content {
-	margin: 25px 0;
 	display: flex;
   	align-items: center;  
 	flex-direction: column;		
 }
 
 #content > h1:first-child {
-	margin-top: 0;
+	margin-top: 30px;
 }
 
 #footer {
-	padding: 6px 0;
+	margin-top:auto;
+	
+	display:flex;
+	align-items:center;
+	justify-content:center;
 	text-align: center;
-	background-color: YellowGreen;
+	
+	height:70px;
+	color: lightgray;
 }
 
 
@@ -57,8 +69,16 @@ ul.messages {
 	width: 320px;
 	margin: 23px auto 25px;
 	padding: 5px 8px;
-	border: thin solid black;
-	background-color: LemonChiffon;
+	border: thin medium black;
+	background-color: floralwhite;
+	list-style-type: none;
+}
+
+ul.messages {
+	width: 320px;
+	margin: 23px auto 25px;
+	padding: 5px 8px;
+	border-radius: 8px;
 	list-style-type: none;
 }
 li.fatal, span.fatal {
@@ -169,4 +189,11 @@ table.home td {
 	 padding: 10px;
 }
 
-	
+
+@media screen and (max-width:989px)
+{
+	.b-inherit{
+	display:inline !important;
+    }
+
+}

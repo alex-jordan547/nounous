@@ -13,22 +13,18 @@
 
     <ui:define name="contenu">
 
-	<h:form>
-		<table class="form">
-			<tr>
-				<td><label>Pseudo :</label></td>
-				<td><h:inputText size="15" value="#{modelConnexion.courant.pseudo}" /></td>
-			</tr>
-			<tr>
-				<td><label>Mot de passe :</label></td>
-				<td><h:inputSecret size="15" value="#{modelConnexion.courant.motDePasse}" /></td>
-			</tr>
-		</table>
-	
-			<br />
-			<h:commandButton action="#{modelConnexion.connect()}" value="Se connecter">
+	<h:form class="mt-4 w-50">
+	<div class="form-outline mb-4">
+				<h:inputText class="form-control" size="15" value="#{modelConnexion.courant.pseudo}" />
+				<label class="form-label">Pseudo</label>
+	</div>
+	<div class="form-outline mb-4">
+				<h:inputSecret  class="form-control" size="15" value="#{modelConnexion.courant.motDePasse}" />
+				<label class="form-label">Mot de passe</label>
+	</div>
+			<h:commandButton class="btn  btn-dark btn-block" action="#{modelConnexion.connect()}" value="Se connecter">
 			</h:commandButton>
-			<input type="reset" value="Effacer" />
+			
 	</h:form>
 	
 	</ui:define>
