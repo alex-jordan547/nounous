@@ -22,7 +22,7 @@ import nounous.commun.dto.DtoParent;
 
 
 
-public class Parent implements Serializable {
+public class Nounou implements Serializable {
 
 	
 	// Champs

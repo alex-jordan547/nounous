@@ -1,6 +1,8 @@
 package nounous.jsf.data;
 
 import java.io.Serializable;
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.Objects;
 
 import javax.validation.constraints.NotBlank;
@@ -22,7 +24,7 @@ import nounous.commun.dto.DtoParent;
 
 
 
-public class Parent implements Serializable {
+public class Enfant implements Serializable {
 
 	
 	// Champs
@@ -36,13 +38,8 @@ public class Parent implements Serializable {
 	@NotBlank( message = "Le lastname doit être renseigné")
 	@Size(max=25, message = "Valeur trop longue pour le libellé : 25 car. maxi" )
 	private String lastname;
-	@NotBlank( message = "L'adresse doit être renseigné")
-	@Size(max=25, message = "Valeur trop longue pour le libellé : 25 car. maxi" )
-	private String adresse;
-	@NotBlank( message = "Le telephone doit être renseigné")
-	@Size(max=25, message = "Valeur trop longue pour le libellé : 25 car. maxi" )
-	private String phone;
-	private Compte compte;
+	private Date dateNaissance;
+	private Parent parent;
     
   
 	@Override

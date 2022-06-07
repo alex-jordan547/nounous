@@ -45,6 +45,7 @@ public class ModelConnexion {
 	    DtoCompte dto = serviceConnexion.sessionUtilisateurOuvrir( courant.getPseudo(), courant.getMotDePasse() );
 	    
 	    if ( dto != null ){
+	    	courant.setId(dto.getId());
 	    	
 //		    try {
 //			    ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
@@ -55,7 +56,6 @@ public class ModelConnexion {
 
 	        compteActif.setPseudo( dto.getPseudo() );
 	        compteActif.setRoles( dto.getRoles() );
-	        
 	    	modelInfo.setTitre( "Bienvenue" );
 	    	modelInfo.setTexte( "Vous êtes connecté en tant que '" + courant.getPseudo() +"'.");
 		    return "info";

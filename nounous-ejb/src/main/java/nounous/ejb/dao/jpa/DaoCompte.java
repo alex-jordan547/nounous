@@ -12,8 +12,10 @@ import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 
+import nounous.commun.dto.DtoNounou;
 import nounous.ejb.dao.IDaoCompte;
 import nounous.ejb.data.Compte;
+import nounous.ejb.data.Nounou;
 
 
 @Stateless
@@ -86,6 +88,16 @@ public class DaoCompte implements IDaoCompte {
 	    query.setParameter( "pseudo", pseudo );
 	    query.setParameter( "idCompte", idCompte );
         return query.getSingleResult() == 0;
+	}
+
+	@Override
+	@TransactionAttribute( NOT_SUPPORTED )
+	public Nounou retrouverNounou(Integer id) {
+		// TODO Auto-generated method stub
+		var jpql = "select n from Nounou n where n.compte.id=:idCompte";
+		var query = em.createQuery(jpql, Nounou.class);
+		query.setParameter("idCompte", id);
+		return query.getSingleResult();
 	}
 	
 }

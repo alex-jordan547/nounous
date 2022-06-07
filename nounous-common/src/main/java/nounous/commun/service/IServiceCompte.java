@@ -3,6 +3,7 @@ package nounous.commun.service;
 import java.util.List;
 
 import nounous.commun.dto.DtoCompte;
+import nounous.commun.dto.DtoNounou;
 import nounous.commun.exception.ExceptionValidation;
 
 
@@ -17,5 +18,7 @@ public interface IServiceCompte {
 	DtoCompte 		retrouver( int idCompte ) ;
 
 	List<DtoCompte>	listerTout() ;
+
+	DtoNounou retrouverNounou(Integer id);
 
 }

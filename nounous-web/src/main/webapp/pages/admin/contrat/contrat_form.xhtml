@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<ui:composition template="/template/page-standard.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough">>
+
+	 <f:metadata>
+		<f:viewParam name="id" value="#{modelContrat.courant.id}" />
+		<f:viewAction action="#{modelEnfant.actualiserCourant()}" />
+		<f:viewAction action="#{modelContrat.actualiserCourant()}" />
+	</f:metadata>
+
+	<ui:define name="titre">Enregistrement du contrat</ui:define>
+
+	<ui:define name="contenu">
+
+		<h:form>
+
+			<table class="form">
+				<tr>
+					<td><h:outputLabel for="id">Id :</h:outputLabel></td>
+					<td><h:inputText id="id" size="5" readonly="true"
+							value="#{modelContrat.courant.id}" /> <br /> <h:message
+							for="id" errorClass="error" /></td>
+				</tr>
+				<tr>
+					<td><h:outputLabel for="idP">Id Parent :</h:outputLabel></td>
+					<td><h:inputText id="idP" size="5" readonly="true"
+							value="#{modelParent.courant.id}" /> <br /> <h:message
+							for="idP" errorClass="error" /></td>
+				</tr>
+				<tr>
+					<td><h:outputLabel for="firstname">Firstname enfant:</h:outputLabel>
+					</td>
+					<td><h:inputText id="firstname" size="25"
+							value="#{modelEnfant.courant.firstname}" /> <br /> <h:message
+							for="firstname" errorClass="error" /></td>
+				</tr>
+				<tr>
+					<td><h:outputLabel for="lastname">Lastname enfant:</h:outputLabel></td>
+					<td><h:inputText id="lastname" size="25"
+							value="#{modelEnfant.courant.lastname}" /> <br /> <h:message
+							for="lastname" errorClass="error" /></td>
+				</tr>
+				<tr>
+					<td><h:outputLabel for="dateNaissance">Date de naissance :</h:outputLabel></td>
+					<td><h:inputText a:type="date" value="#{modelEnfant.courant.dateNaissance}">
+							<f:convertDateTime pattern="yyyy-MM-dd" />
+						</h:inputText><br /> <h:message
+							for="dateNaissance" errorClass="error" /></td>
+				</tr>
+				<tr>
+					<td><h:outputLabel for="dateDebut">Date de debut :</h:outputLabel></td>
+					<td>
+					<h:inputText a:type="date" value="#{modelContrat.courant.dateDebut}">
+							<f:convertDateTime pattern="yyyy-MM-dd" />
+						</h:inputText> <br />
+						<h:message for="dateDebut" errorClass="error" /></td>
+				</tr>
+
+				<tr>
+					<td><h:outputLabel for="dateFin">Date de fin :</h:outputLabel></td>
+					<td>
+					<h:inputText a:type="date" value="#{modelContrat.courant.dateFin}">
+							<f:convertDateTime pattern="yyyy-MM-dd" />
+						</h:inputText>
+					 <br /> <h:message
+							for="dateFin" errorClass="error" /></td>
+				</tr>
+				<tr>
+					<td><h:outputLabel for="tarifHoraire">Tarif Horaire :</h:outputLabel></td>
+					<td><h:inputText id="tarifHoraire" size="25"
+							value="#{modelContrat.courant.tarifHoraire}" /> <br /> <h:message
+							for="tarifHoraire" errorClass="error" /></td>
+				</tr>
+				<tr>
+					<td><h:outputLabel for="indemRepas">Indemnisation repas :</h:outputLabel></td>
+					<td><h:inputText id="indemRepas" size="25"
+							value="#{modelContrat.courant.indemRepas}" /> <br /> <h:message
+							for="indemRepas" errorClass="error" /></td>
+				</tr>
+
+			</table>
+
+			<br />
+			<h:commandButton value="Valider"
+				action="#{modelContrat.validerMiseAJour()}" />
+			<h:button value="Retour" outcome="comptes" />
+		</h:form>
+
+	</ui:define>
+
+</ui:composition>

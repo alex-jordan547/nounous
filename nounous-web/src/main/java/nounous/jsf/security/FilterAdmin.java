@@ -37,7 +37,7 @@ public class FilterAdmin implements Filter {
 	
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 
-		if ( compteActif.isAdmininstrateur() ) {
+		if ( compteActif.isAdmininstrateur() || compteActif.isNounou() ) {
 	        // si OK, on traite l'URL normalement
 	        chain.doFilter(request, response);
 	    } else {

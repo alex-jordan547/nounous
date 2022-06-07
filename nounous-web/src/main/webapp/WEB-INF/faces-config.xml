@@ -28,6 +28,10 @@
    <from-outcome>formulaireParent</from-outcome>
    <to-view-id>/pages/admin/contrat/formulaire.xhtml</to-view-id>
   </navigation-case>
+  <navigation-case>
+   <from-outcome>contrat_form</from-outcome>
+   <to-view-id>/pages/admin/contrat/contrat_form.xhtml</to-view-id>
+  </navigation-case>
  </navigation-rule>
  <application/>
 </faces-config>

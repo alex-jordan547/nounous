@@ -5,60 +5,59 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.ejb.EJB;
-import javax.enterprise.context.SessionScoped;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import nounous.commun.dto.DtoParent;
+import nounous.commun.dto.DtoEnfant;
 import nounous.commun.exception.ExceptionValidation;
-import nounous.commun.service.IServiceCompte;
+import nounous.commun.service.IServiceEnfant;
 import nounous.commun.service.IServiceParent;
-import nounous.jsf.data.Parent;
+import nounous.jsf.data.Enfant;
 import nounous.jsf.data.mapper.IMapper;
 import nounous.jsf.util.UtilJsf;
 
 
 @SuppressWarnings("serial")
 @Named
-@SessionScoped
-public class ModelParent implements Serializable {
+@ViewScoped
+public class ModelEnfant implements Serializable {
 
 	
 	// Champs
 	
-	private List<Parent>		liste;
+	private List<Enfant>		liste;
 	
-	private Parent			courant;
+	private Enfant			courant;
 	
 	@EJB
-	private IServiceParent	serviceParent;
+	private IServiceEnfant	serviceEnfant;
 	
 	@Inject
 	private IMapper				mapper;
 	
 	@Inject
-	private ModelCompte modelCompte;
+	private ModelParent modelParent;
 	
 	@EJB
-	private IServiceCompte serviceCompte;
+	private IServiceParent serviceParent;
 
 	
 	// Getters 
 	
-	public List<Parent> getListe() {
+	public List<Enfant> getListe() {
 		if ( liste == null ) {
 			liste = new ArrayList<>();
-			for ( DtoParent dto : serviceParent.listerTout() ) {
+			for ( DtoEnfant dto : serviceEnfant.listerTout() ) {
 				liste.add( mapper.map( dto ) );
 			}
 		}
 		return liste;
 	}
 
-	public Parent getCourant() {
+	public Enfant getCourant() {
 		if ( courant == null ) {
-			courant = new Parent();
+			courant = new Enfant();
 		}
 		return courant;
 	}
@@ -68,9 +67,9 @@ public class ModelParent implements Serializable {
 	
 	public String actualiserCourant() {
 		if ( courant != null ) {
-			DtoParent dto = serviceParent.retrouver( courant.getId() ); 
+			DtoEnfant dto = serviceEnfant.retrouver( courant.getId() ); 
 			if ( dto == null ) {
-				UtilJsf.messageError( "Le parent demandé n'existe pas" );
+				UtilJsf.messageError( "Lenfant demandé n'existe pas" );
 				return "liste";
 			} else {
 				courant = mapper.map( dto );
@@ -83,29 +82,27 @@ public class ModelParent implements Serializable {
 	// Actions
 	
 	public String validerMiseAJour() {
+		System.out.println(modelParent.getCourant().getId());
 		try {
 			if ( courant.getId() == null) {
-				int idCompte = modelCompte.validerMiseAJour();
-				if(idCompte !=-1) {
-					courant.setCompte(mapper.map(serviceCompte.retrouver(idCompte)));
-				courant.setId(serviceParent.inserer( mapper.map(courant) ));
-				}
+					courant.setParent(mapper.map(serviceParent.retrouver(modelParent.getCourant().getId())));
+				courant.setId(serviceEnfant.inserer( mapper.map(courant) ));
+				actualiserCourant();
 				
 			} else {
-				serviceParent.modifier( mapper.map(courant) );
-				modelCompte.validerMiseAJour();
+				serviceEnfant.modifier( mapper.map(courant) );
 			}
 			UtilJsf.messageInfo( "Mise à jour effectuée avec succès." );
-			return "contrat_form";
+			return "liste";
 		} catch (ExceptionValidation e) {
 			UtilJsf.messageError(e);
 			return null;
 		}
 	}
 	
-	public String supprimer( Parent item ) {
+	public String supprimer( Enfant item ) {
 		try {
-			serviceParent.supprimer( item.getId() );
+			serviceEnfant.supprimer( item.getId() );
 			liste.remove(item);
 			UtilJsf.messageInfo( "Suppression effectuée avec succès." );
 		} catch (ExceptionValidation e) {

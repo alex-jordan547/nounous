@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.ejb.EJB;
+import javax.enterprise.context.SessionScoped;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -13,13 +14,14 @@ import nounous.commun.dto.DtoCompte;
 import nounous.commun.exception.ExceptionValidation;
 import nounous.commun.service.IServiceCompte;
 import nounous.jsf.data.Compte;
+import nounous.jsf.data.Nounou;
 import nounous.jsf.data.mapper.IMapper;
 import nounous.jsf.util.UtilJsf;
 
 
 @SuppressWarnings("serial")
 @Named
-@ViewScoped
+@SessionScoped
 public class ModelCompte implements Serializable {
 
 	
@@ -34,6 +36,8 @@ public class ModelCompte implements Serializable {
 	
 	@Inject
 	private IMapper			mapper;
+	
+	private Nounou nounou;
 	
 
 	
@@ -66,6 +70,8 @@ public class ModelCompte implements Serializable {
 				UtilJsf.messageError( "Le compte demandé n'existe pas" );
 				return "test/liste";
 			} else {
+//TODO Recuperer l'objet nounou courant
+				nounou = mapper.map(serviceCompte.retrouverNounou(3));
 				courant = mapper.map( dto );
 			}
 		}
@@ -75,18 +81,29 @@ public class ModelCompte implements Serializable {
 	
 	// Actions
 	
-	public String validerMiseAJour() {
+	public Nounou getNounou() {
+		return nounou;
+	}
+
+	public void setNounou(Nounou nounou) {
+		this.nounou = nounou;
+	}
+
+	public int validerMiseAJour() {
 		try {
+			int id =-1;
 			if ( courant.getId() == null) {
-				serviceCompte.inserer( mapper.map(courant) );
+				id = serviceCompte.inserer( mapper.map(courant) );
+				courant.setId(id);
+				actualiserCourant();
 			} else {
 				serviceCompte.modifier( mapper.map(courant) );
 			}
 			UtilJsf.messageInfo( "Mise à jour effectuée avec succès." );
-			return "liste";
+			return id;
 		} catch (ExceptionValidation e) {
 			UtilJsf.messageError(e);
-			return null;
+			return -1;
 		}
 	}
 	

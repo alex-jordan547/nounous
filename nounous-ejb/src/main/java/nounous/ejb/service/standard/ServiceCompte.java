@@ -1,6 +1,7 @@
 package nounous.ejb.service.standard;
 
 import static javax.ejb.TransactionAttributeType.NOT_SUPPORTED;
+import static javax.ejb.TransactionAttributeType.REQUIRED;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,9 +9,11 @@ import java.util.List;
 import javax.ejb.Remote;
 import javax.ejb.Stateless;
 import javax.ejb.TransactionAttribute;
+import javax.ejb.TransactionAttributeType;
 import javax.inject.Inject;
 
 import nounous.commun.dto.DtoCompte;
+import nounous.commun.dto.DtoNounou;
 import nounous.commun.exception.ExceptionValidation;
 import nounous.commun.service.IServiceCompte;
 import nounous.ejb.dao.IDaoCompte;
@@ -94,6 +97,12 @@ public class ServiceCompte implements IServiceCompte {
 		if (message.length() > 0) {
 			throw new ExceptionValidation(message.toString().substring(1));
 		}
+	}
+
+	@Override
+	@TransactionAttribute(REQUIRED)
+	public DtoNounou retrouverNounou(Integer id) {
+		return mapper.map(daoCompte.retrouverNounou(id));
 	}
 
 }

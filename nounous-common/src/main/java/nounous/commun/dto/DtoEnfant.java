@@ -1,6 +1,7 @@
 package nounous.commun.dto;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -25,7 +26,7 @@ public class DtoEnfant implements Serializable {
 	private int id;
 	private String firstname;
 	private String lastname;
-	private String dateNaissance;
+	private Date dateNaissance;
 	private DtoContrat contrat;
 	private DtoParent parent;
 

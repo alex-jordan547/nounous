@@ -8,11 +8,17 @@ import org.mapstruct.factory.Mappers;
 
 import nounous.commun.dto.DtoCategorie;
 import nounous.commun.dto.DtoCompte;
+import nounous.commun.dto.DtoContrat;
+import nounous.commun.dto.DtoEnfant;
+import nounous.commun.dto.DtoNounou;
 import nounous.commun.dto.DtoParent;
 import nounous.commun.dto.DtoPersonne;
 import nounous.commun.dto.DtoTelephone;
 import nounous.ejb.data.Categorie;
 import nounous.ejb.data.Compte;
+import nounous.ejb.data.Contrat;
+import nounous.ejb.data.Enfant;
+import nounous.ejb.data.Nounou;
 import nounous.ejb.data.Parent;
 import nounous.ejb.data.Personne;
 import nounous.ejb.data.Telephone;
@@ -62,7 +68,27 @@ public interface IMapperEjb {
 	Parent map( DtoParent source );
 	
 	DtoParent map( Parent source );
+	
+	// Enfant
+	
+	
+	Enfant map( DtoEnfant source );
+	
+	DtoEnfant map( Enfant source );
 
+	// Contrat
+	
+	
+		Contrat map( DtoContrat source );
+		
+		DtoContrat map( Contrat source );
+		
+		// Nounou
+		
+		
+		Nounou map( DtoNounou source );
+		
+		DtoNounou map( Nounou source );
 	
 	
 	// Méthodes auxiliaires
