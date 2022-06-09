@@ -6,7 +6,6 @@ import java.util.List;
 
 import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
-import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -41,6 +40,8 @@ public class ModelContrat implements Serializable {
 	private ModelEnfant modelEnfant;
 	@Inject
 	private ModelCompte modelCompte;
+	@Inject
+	private ModelConnexion modelConnexion;
 	
 	@EJB
 	private IServiceParent serviceParent;
@@ -90,7 +91,7 @@ public class ModelContrat implements Serializable {
 			if ( courant.getId() == null) {
 				modelEnfant.validerMiseAJour();
 					courant.setEnfant(modelEnfant.getCourant());
-					courant.setNounou(modelCompte.getNounou());
+					courant.setNounou(modelCompte.getNounou(modelConnexion.getCompteActif().getId()));
 				 serviceContrat.inserer( mapper.map(courant) );
 				
 			} else {

@@ -119,4 +119,8 @@ public class ModelCompte implements Serializable {
 		return null;
 	}
 	
+	public Nounou getNounou(int idCompte) {
+	return	mapper.map(serviceCompte.retrouverNounou(idCompte));
+	}
+	
 }
