@@ -1,5 +1,6 @@
 package nounous.ejb.data;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -38,6 +39,6 @@ public class Parent{
 	@JoinColumn(name = "idCompte")
 	private Compte compte;
 	@OneToMany(mappedBy = "parent", cascade = CascadeType.ALL)
-	private List<Enfant> enfants;
+	private List<Enfant> enfants=new ArrayList<>();;
 	
 }

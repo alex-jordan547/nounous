@@ -23,81 +23,72 @@ import nounous.ejb.data.Parent;
 import nounous.ejb.data.Personne;
 import nounous.ejb.data.Telephone;
 
- 
-@Mapper( componentModel = "cdi" )
-public interface IMapperEjb {  
-	
-	static final IMapperEjb INSTANCE = Mappers.getMapper( IMapperEjb.class );
-	
-	
+@Mapper(componentModel = "cdi")
+public interface IMapperEjb {
+
+	static final IMapperEjb INSTANCE = Mappers.getMapper(IMapperEjb.class);
+
 	// Compte
-	
-	Compte map( DtoCompte source );
-	
-	DtoCompte map( Compte source );
 
-	
+	Compte map(DtoCompte source);
+
+	DtoCompte map(Compte source);
+
 	// Categorie
-	
-	Categorie map( DtoCategorie source );
-	
-	DtoCategorie map( Categorie source );
 
-	
+	Categorie map(DtoCategorie source);
+
+	DtoCategorie map(Categorie source);
+
 	// Personne
-	
-	Personne map( DtoPersonne source );
-	
-	DtoPersonne map( Personne source );
 
-	@Mapping( target="categorie", ignore = true )
-	@Mapping( target="telephones", ignore = true )
-	DtoPersonne mapMinimal( Personne source );
-	
-	
+	Personne map(DtoPersonne source);
+
+	DtoPersonne map(Personne source);
+
+	@Mapping(target = "categorie", ignore = true)
+	@Mapping(target = "telephones", ignore = true)
+	DtoPersonne mapMinimal(Personne source);
+
 	// Telephone
-	
-	@Mapping( target="personne", ignore=true )
-	Telephone map( DtoTelephone source );
-	
-	DtoTelephone map( Telephone source );
-	
-	
+
+	@Mapping(target = "personne", ignore = true)
+	Telephone map(DtoTelephone source);
+
+	DtoTelephone map(Telephone source);
+
 	// Parent
-	
-	Parent map( DtoParent source );
-	
-	DtoParent map( Parent source );
-	
+
+	Parent map(DtoParent source);
+	@Mapping(target = "enfants",ignore = true)
+	DtoParent map(Parent source);
+
 	// Enfant
+
+
+	Enfant map(DtoEnfant source);
 	
-	
-	Enfant map( DtoEnfant source );
-	
-	DtoEnfant map( Enfant source );
+	DtoEnfant map(Enfant source);
 
 	// Contrat
-	
-	
-		Contrat map( DtoContrat source );
-		
-		DtoContrat map( Contrat source );
-		
-		// Nounou
-		
-		
-		Nounou map( DtoNounou source );
-		
-		DtoNounou map( Nounou source );
-	
-	
+
+	Contrat map(DtoContrat source);
+
+	DtoContrat map(Contrat source);
+
+	// Nounou
+
+	Nounou map(DtoNounou source);
+
+	DtoNounou map(Nounou source);
+
 	// Méthodes auxiliaires
-	
-    @AfterMapping
-    public default void addBackReference(@MappingTarget Personne target) {
-        for (Telephone telephone : target.getTelephones() ) {
-        	telephone.setPersonne( target );
-        }
-    }	
-	
+
+	@AfterMapping
+	public default void addBackReference(@MappingTarget Personne target) {
+		for (Telephone telephone : target.getTelephones()) {
+			telephone.setPersonne(target);
+		}
+	}
+
 }

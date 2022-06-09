@@ -51,7 +51,7 @@ public class DaoContrat implements IDaoContrat{
 	@Override
 	public List<Contrat> listerTout() {
 		em.clear();
-		var jpql = "SELECT c FROM Contrat c ORDER BY c.firstname";
+		var jpql = "SELECT c FROM Contrat c ORDER BY c.id";
 		var query = em.createQuery( jpql, Contrat.class );
 		return query.getResultList();
 	}	

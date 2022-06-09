@@ -1,5 +1,6 @@
 package nounous.ejb.service.standard;
 
+import static javax.ejb.TransactionAttributeType.MANDATORY;
 import static javax.ejb.TransactionAttributeType.NOT_SUPPORTED;
 import static javax.ejb.TransactionAttributeType.REQUIRED;
 
@@ -22,6 +23,7 @@ import nounous.ejb.data.mapper.IMapperEjb;
 
 @Stateless
 @Remote
+@TransactionAttribute( REQUIRED )
 public class ServiceContrat implements IServiceContrat {
 
 	// Champs
@@ -33,7 +35,7 @@ public class ServiceContrat implements IServiceContrat {
 	// Actions
 
 	@Override
-	@TransactionAttribute(TransactionAttributeType.MANDATORY)
+	@TransactionAttribute(TransactionAttributeType.REQUIRED)
 	public int inserer(DtoContrat dtoContrat) throws ExceptionValidation {
 		int id = daoContrat.inserer(mapper.map(dtoContrat));
 		return id;
