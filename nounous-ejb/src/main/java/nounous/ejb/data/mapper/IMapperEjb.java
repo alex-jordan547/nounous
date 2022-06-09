@@ -65,9 +65,9 @@ public interface IMapperEjb {
 
 	// Enfant
 
-
-	Enfant map(DtoEnfant source);
 	
+	Enfant map(DtoEnfant source);
+	@Mapping(target = "contrat",ignore = true)
 	DtoEnfant map(Enfant source);
 
 	// Contrat

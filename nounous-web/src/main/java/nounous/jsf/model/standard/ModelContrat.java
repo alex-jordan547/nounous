@@ -49,12 +49,13 @@ public class ModelContrat implements Serializable {
 	// Getters 
 	
 	public List<Contrat> getListe() {
-		if ( liste == null ) {
+		
+
 			liste = new ArrayList<>();
 			for ( DtoContrat dto : serviceContrat.listerTout() ) {
 				liste.add( mapper.map( dto ) );
-			}
 		}
+		System.out.println(serviceContrat.listerTout());
 		return liste;
 	}
 
@@ -96,7 +97,7 @@ public class ModelContrat implements Serializable {
 				serviceContrat.modifier( mapper.map(courant) );
 			}
 			UtilJsf.messageInfo( "Mise à jour effectuée avec succès." );
-			return "liste";
+			return "contrats";
 		} catch (ExceptionValidation e) {
 			System.out.println(courant);
 			UtilJsf.messageError(e);

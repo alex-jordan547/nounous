@@ -31,6 +31,9 @@
     NAME="output6" PATH="/pages/admin/contrat/contrat_form.xhtml"
     TARGET="rules:#pages#admin#contrat#contrat_form.xhtml"
     TITLE="contrat_form" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="contrats::#pages#admin#contrat#liste.xhtml"
+    NAME="output7" PATH="/pages/admin/contrat/liste.xhtml"
+    TARGET="rules:#pages#admin#contrat#liste.xhtml" TITLE="contrats" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#connexion.xhtml" PATH="/connexion.xhtml"
@@ -46,5 +49,8 @@
   model-entity="JSFProcessGroup" persistent="true"/>
  <PROCESS-ITEM NAME="rules:#pages#admin#contrat#contrat_form.xhtml"
   PATH="/pages/admin/contrat/contrat_form.xhtml" SHAPE="56,360,50,25"
+  model-entity="JSFProcessGroup" persistent="true"/>
+ <PROCESS-ITEM NAME="rules:#pages#admin#contrat#liste.xhtml"
+  PATH="/pages/admin/contrat/liste.xhtml" SHAPE="53,504,0,0"
   model-entity="JSFProcessGroup" persistent="true"/>
 </PROCESS>
