@@ -41,8 +41,10 @@ public class Contrat implements Serializable {
   
 	@Override
 	public String toString() {
-		return "" + id;
+		return enfant.getFirstname() + " " + enfant.getLastname();
 	}
+	
+	
 
 
 }

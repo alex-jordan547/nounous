@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<ui:composition template="/template/page-standard.xhtml"
+     xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:h="http://java.sun.com/jsf/html"
+     xmlns:f="http://java.sun.com/jsf/core"
+     xmlns:ui="http://java.sun.com/jsf/facelets"
+     xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+
+	 <f:metadata>
+		 <f:viewParam name="id" value="#{modelGarder.courant.id}" />
+		 <f:viewAction action="#{modelGarder.actualiserCourant()}" />
+	 </f:metadata>
+
+    <ui:define name="titre">Garde du <h:outputText a:type="date"  value="#{modelGarder.courant.dateJ}">
+				<f:convertDateTime pattern="yyyy-MM-dd" />
+				</h:outputText> pour #{modelGarder.courant.contrat.enfant.firstname}</ui:define>
+
+    <ui:define name="contenu">
+  <h:form class="mt-4 w-50">
+  <div class="row ">
+	<div class="form-outline mb-4">
+				<h:inputText class="form-control"  value="#{modelGarder.courant.contrat.enfant.toString()}"  readonly="true"/>
+				<label class="form-label">Nom-prénom</label>
+	</div>
+	</div>
+	<div class="row ">
+	<div class="form-outline mb-4 ">
+				<h:inputText a:type="date" class="form-control"  value="#{modelGarder.courant.dateJ}">
+				<f:convertDateTime pattern="yyyy-MM-dd" />
+				</h:inputText>
+
+				<label class="form-label">Date</label>
+	</div>
+	</div>
+	<div class="row">
+	<div class="form-outline mb-4 col ">
+				<h:inputText a:type="time" pattern="hh:ss" class="form-control"  value="#{modelGarder.courant.heureDebut}"/>
+				<label class="form-label">Heure Début</label>
+	</div>
+	<div class="form-outline mb-4 col">
+				<h:inputText a:type="time" pattern="hh:ss" class="form-control"  value="#{modelGarder.courant.heureFin}"/>
+				<label class="form-label">Heure Fin</label>
+	</div>
+	</div>
+	<div class="row ">
+			<h:commandButton class="btn  btn-dark btn-block " action="#{modelGarder.validerMiseAJour()}" value="Editer">
+			</h:commandButton>
+		<h:button class="btn  btn-warning btn-block " value="Retour" outcome="gardes" />
+		<h:commandButton 
+		onclick="return confirm('Confirmez-vous la suppression ?')" 
+		class="btn  btn-danger btn-block " action="#{modelGarder.supprimer(modelGarder.courant)}" value="Supprimer">
+			</h:commandButton>
+		</div>
+	</h:form>
+	
+	
+
+	</ui:define>
+
+</ui:composition>

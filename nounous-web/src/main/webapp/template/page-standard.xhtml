@@ -37,7 +37,7 @@
 
 <div class="navbar navbar-expand-lg navbar-dark bg-dark mb-5" >
   <div class="container-fluid">
-    <h:link outcome="comptes"  class="navbar-brand" ><i class="fas fa-baby"></i> &nbsp; Nounous</h:link>
+    <h:link outcome="comptes"  class="navbar-brand" ><i class="fas fa-baby text-light"></i> &nbsp; Nounous</h:link>
     <button
       class="navbar-toggler"
       type="button"
@@ -54,14 +54,13 @@
       <h:outputText value="&nbsp;" rendered="#{not compteActif.loggedIn}" />
       <h:form rendered="#{compteActif.loggedIn}" class="b-inherit">
 		<h:link class="nav-link #{view.viewId == '/pages/user/personne/liste.xhtml' ? 'active' : ''}" outcome="personnes" value="Personnes" rendered="#{compteActif.utilisateur }" />
-		<h:panelGroup rendered="#{compteActif.admininstrateur}">
+		<h:panelGroup rendered="#{compteActif.nounou}">
 			<h:link class="nav-link #{view.viewId == '/pages/admin/categorie/liste.xhtml' ? 'active' : ''}" outcome="catégories" value="Catégories"  />
-			<h:link class="nav-link #{view.viewId == '/pages/admin/compte/liste.xhtml' ? 'active' : ''}" outcome="comptes" > <i class="far fa-user"></i> Comptes</h:link>
-			<h:link class="nav-link #{view.viewId == '/pages/admin/contrat/formulaire.xhtml' ? 'active' : ''}" outcome="formulaireParent" > <i class="fas fa-male"></i> Parents 1</h:link>
-			<h:link class="nav-link #{view.viewId == '/pages/admin/contrat/contrat_form.xhtml' ? 'active' : ''}" outcome="contrat_form" > <i class="fas fa-male"></i> Parents</h:link>
-			<h:link class="nav-link #{view.viewId == '/pages/admin/garde/lister.xhtml' ? 'active' : ''}" outcome="gardes" > <i class="fas fa-baby-carriage"></i> Gardes</h:link>
+			<h:link class="nav-link #{view.viewId == '/pages/admin/compte/liste.xhtml' ? 'active' : ''}" outcome="comptes" > <i class="fas fa-user text-light"></i> Comptes</h:link>
+			<h:link class="nav-link #{view.viewId == '/pages/admin/contrat/contrat_form.xhtml' ? 'active' : ''}" outcome="contrat_form" > <i class="fas fa-male text-light"></i> Parents</h:link>
+			<h:link class="nav-link #{view.viewId == '/pages/admin/garde/lister.xhtml' ? 'active' : ''}" outcome="gardes" > <i class="fas fa-baby-carriage text-light"></i> Gardes</h:link>
 		</h:panelGroup>
-		<h:commandLink class="nav-link" action="#{compteActif.disconnect()}" ><i class="fas fa-sign-out-alt "></i></h:commandLink>
+		<h:commandLink class="nav-link" action="#{compteActif.disconnect()}" ><i class="fas fa-sign-out-alt text-light "></i></h:commandLink>
 	</h:form>
 	
       </div>
@@ -82,6 +81,7 @@
 </div>
 
 <h1><ui:insert name="titre">Titre absent</ui:insert></h1>
+
 
 <h:messages errorClass="error" globalOnly="false" infoClass="info" styleClass="messages" warnClass="warning" />
 <!-- <h:messages errorClass="alert-danger" globalOnly="false" infoClass="alert-info" styleClass="alert messages" warnClass="alert-warning" /> -->

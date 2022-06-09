@@ -1,8 +1,7 @@
 package nounous.commun.dto;
 
 import java.io.Serializable;
-import java.time.LocalDate;
-import java.time.LocalTime;
+import java.util.Date;
 
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -23,10 +22,12 @@ public class DtoGarder implements Serializable {
 	// Champs
 
 	private int id;
-	private LocalTime heureDebut;
-	private LocalTime heureFin;
-	private LocalDate dateJ; 
+	private String heureDebut;
+	private String heureFin;
+	private Date dateJ; 
 	private boolean aMange;
+	
+	private DtoContrat contrat;
 
 	
 }

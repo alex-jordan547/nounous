@@ -1,7 +1,6 @@
 package nounous.ejb.data;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -26,13 +25,15 @@ public class Garder {
 	@Column(name="idGarder")
 	@GeneratedValue( strategy = GenerationType.IDENTITY )
 	private int id;
-	private LocalTime heureDebut;
-	private LocalTime heureFin;
-	private LocalDate dateJ; 
+	private String heureDebut;
+	private String heureFin;
+	private Date dateJ; 
 	private boolean aMange;
 	
 	
 	@ManyToOne
 	@JoinColumn(name="idContrat")
 	private Contrat contrat;
+	
+	
 }

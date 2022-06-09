@@ -34,6 +34,12 @@
    <PROCESS-ITEM-OUTPUT ID="gardes::#pages#admin#garde#lister.xhtml"
     NAME="output7" PATH="/pages/admin/garde/lister.xhtml"
     TARGET="rules:#pages#admin#garde#lister.xhtml" TITLE="gardes" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="contrats::#pages#admin#contrat#liste.xhtml"
+    NAME="output8" PATH="/pages/admin/contrat/liste.xhtml"
+    TARGET="rules:#pages#admin#contrat#liste.xhtml" TITLE="contrats" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="new::#pages#admin#garde#new.xhtml"
+    NAME="output9" PATH="/pages/admin/garde/new.xhtml"
+    TARGET="rules:#pages#admin#garde#new.xhtml" TITLE="new" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#connexion.xhtml" PATH="/connexion.xhtml"
@@ -52,4 +58,8 @@
  <PROCESS-ITEM NAME="rules:#pages#admin#garde#lister.xhtml"
   PATH="/pages/admin/garde/lister.xhtml" SHAPE="80,414,0,0"
   model-entity="JSFProcessGroup" persistent="true"/>
+ <PROCESS-ITEM NAME="rules:#pages#admin#contrat#liste.xhtml"
+  PATH="/pages/admin/contrat/liste.xhtml" SHAPE="304,849,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#pages#admin#garde#new.xhtml"
+  PATH="/pages/admin/garde/new.xhtml" SHAPE="304,881,0,0" model-entity="JSFProcessGroup"/>
 </PROCESS>

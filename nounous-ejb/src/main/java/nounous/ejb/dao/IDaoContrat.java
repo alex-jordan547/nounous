@@ -17,4 +17,5 @@ public interface IDaoContrat {
 
 	List<Contrat> listerTout();
 
+	List<Contrat> listerParNounous(int idNounou);
 }

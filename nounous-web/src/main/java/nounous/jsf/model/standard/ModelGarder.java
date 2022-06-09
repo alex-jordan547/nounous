@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.ejb.EJB;
-import javax.faces.view.ViewScoped;
+import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -19,7 +19,7 @@ import nounous.jsf.util.UtilJsf;
 
 @SuppressWarnings("serial")
 @Named
-@ViewScoped
+@SessionScoped
 public class ModelGarder implements Serializable {
 
 	
@@ -47,9 +47,11 @@ public class ModelGarder implements Serializable {
 				liste.add( mapper.map( dto ) );
 			}
 		}
+		
 		return liste;
 	}
 
+	
 	public Garder getCourant() {
 		if ( courant == null ) {
 			courant = new Garder();
@@ -79,12 +81,16 @@ public class ModelGarder implements Serializable {
 	public String validerMiseAJour() {
 		try {
 			if ( courant == null) {
+
+				System.out.println(courant.getHeureDebut());
 				serviceGarder.inserer( mapper.map(courant) );
 			} else {
+				System.out.println(courant.getHeureDebut());
 				serviceGarder.modifier( mapper.map(courant) );
+				
 			}
 			UtilJsf.messageInfo( "Mise à jour effectuée avec succès." );
-			return "liste";
+			return "gardes";
 		} catch (ExceptionValidation e) {
 			UtilJsf.messageError(e);
 			return null;
@@ -99,7 +105,7 @@ public class ModelGarder implements Serializable {
 		} catch (ExceptionValidation e) {
 			UtilJsf.messageError( e );
 		}
-		return null;
+		return "gardes";
 	}
 	
 }

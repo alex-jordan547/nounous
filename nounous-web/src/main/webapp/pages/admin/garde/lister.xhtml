@@ -4,17 +4,18 @@
      xmlns:f="http://java.sun.com/jsf/core"
      xmlns:ui="http://java.sun.com/jsf/facelets"
      template="/template/page-standard.xhtml" 
-                xmlns:rich="http://richfaces.org/rich">
+     xmlns:rich="http://richfaces.org/rich"
+     xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
 
      <ui:define name="titre">Historique de garde</ui:define>
+     <hr/>
 
     <ui:define name="contenu">
-
-	
-<div class="row my-2 ">	
+    
+<div class="row my-2 container">	
 	<ui:repeat value="#{modelGarder.liste}" var="item"> 
 	
-<div class="card mb-3 col mx-1 hover-shadow" style="max-width: 540px;">
+<div class="card mb-3 col-6 mx-1 hover-shadow bg-light" style="max-width: 500px;">
   <div class="row g-0">
     <div class="col-md-4">
       <img
@@ -25,21 +26,30 @@
     </div>
     <div class="col-md-8">
       <div class="card-body">
-        <h5 class="card-title">#{item.contrat.enfant.firstname}</h5>
+        <h5 class="card-title">Contrat N°#{item.id} </h5>
         <p class="card-text">
-          This is a wider card with supporting text below as a natural lead-in to
-          additional content. This content is a little bit longer.
+       	<span class="badge badge-dark fs-4 text-light">#{item.contrat.enfant.firstname} #{item.contrat.enfant.lastname} </span>
+       	<hr/>
+       	Du : <span class="badge badge-dark fs-6 "><h:outputText class="text-light" a:type="date"  value="#{item.dateJ}">
+				<f:convertDateTime pattern="yyyy-MM-dd" />
+				</h:outputText></span>
         </p>
         <p class="card-text">
-          <small class="text-muted">Last updated 3 mins ago</small>
+          <small class="text-muted">De #{item.heureDebut} à #{item.heureFin} </small>
         </p>
+        <h:link class="btn btn-dark btn-block" value="Gérer" outcome="formulaire?id=#{item.id}"/> 
       </div>
+     
+      		
+      
     </div>
   </div>
 </div>
 
 	</ui:repeat>
+	
 </div>
+<h:link class="btn btn-dark text-center mb-3" value="Ajouter une garde" outcome="new"/>
 
 	</ui:define>
 

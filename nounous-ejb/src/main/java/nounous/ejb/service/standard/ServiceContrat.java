@@ -59,7 +59,7 @@ public class ServiceContrat implements IServiceContrat {
 	}
 
 	@Override
-	@TransactionAttribute(NOT_SUPPORTED)
+	@TransactionAttribute(TransactionAttributeType.REQUIRED)
 	public List<DtoContrat> listerTout() {
 		List<DtoContrat> liste = new ArrayList<>();
 		for (Contrat contrat : daoContrat.listerTout()) {
@@ -68,6 +68,15 @@ public class ServiceContrat implements IServiceContrat {
 		return liste;
 	}
 
+	@TransactionAttribute(TransactionAttributeType.REQUIRED)
+	@Override
+	public List<DtoContrat> listerParNounous(int idN) {
+		List<DtoContrat> liste = new ArrayList<>();
+		for (Contrat contrat : daoContrat.listerParNounous(idN)) {
+			liste.add(mapper.map(contrat));
+		}
+		return liste;
+	}
 	// Méthodes auxiliaires
 
 	private void verifierValiditeDonnees(DtoContrat dtoContrat) throws ExceptionValidation {

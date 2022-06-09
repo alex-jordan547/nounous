@@ -6,7 +6,6 @@ import java.util.List;
 
 import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
-import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -29,6 +28,8 @@ public class ModelContrat implements Serializable {
 	
 	private List<Contrat>		liste;
 	
+	private List<Contrat>		listeParNounou;
+	
 	private Contrat			courant;
 	
 	@EJB
@@ -42,6 +43,9 @@ public class ModelContrat implements Serializable {
 	@Inject
 	private ModelCompte modelCompte;
 	
+	@Inject
+	private ModelConnexion modelConnexion;
+	
 	@EJB
 	private IServiceParent serviceParent;
 
@@ -49,14 +53,27 @@ public class ModelContrat implements Serializable {
 	// Getters 
 	
 	public List<Contrat> getListe() {
-		if ( liste == null ) {
+		
+
 			liste = new ArrayList<>();
 			for ( DtoContrat dto : serviceContrat.listerTout() ) {
 				liste.add( mapper.map( dto ) );
-			}
 		}
+		
 		return liste;
 	}
+	
+	public List<Contrat> getListeParNounou() {
+		
+		listeParNounou = new ArrayList<>();
+		for ( DtoContrat dto : serviceContrat.listerParNounous(2) ) {
+			liste.add( mapper.map( dto ) );
+	}
+	System.out.println(serviceContrat.listerTout());
+	return liste;
+}
+	
+	
 
 	public Contrat getCourant() {
 		if ( courant == null ) {
@@ -87,16 +104,16 @@ public class ModelContrat implements Serializable {
 	public String validerMiseAJour() {
 		try {
 			if ( courant.getId() == null) {
-				modelEnfant.validerMiseAJour();
+					modelEnfant.validerMiseAJour();
 					courant.setEnfant(modelEnfant.getCourant());
 					courant.setNounou(modelCompte.getNounou());
-				 serviceContrat.inserer( mapper.map(courant) );
+				 	serviceContrat.inserer( mapper.map(courant) );
 				
 			} else {
 				serviceContrat.modifier( mapper.map(courant) );
 			}
 			UtilJsf.messageInfo( "Mise à jour effectuée avec succès." );
-			return "liste";
+			return "contrats";
 		} catch (ExceptionValidation e) {
 			System.out.println(courant);
 			UtilJsf.messageError(e);

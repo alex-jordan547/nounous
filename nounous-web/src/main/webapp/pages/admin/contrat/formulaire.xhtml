@@ -68,16 +68,7 @@
 							value="#{modelCompte.courant.motDePasse}" /> <br /> <h:message
 							for="motdepasse" errorClass="error" /></td>
 				</tr>
-				<tr>
-					<td><h:outputLabel for="role">Role :</h:outputLabel></td>
-					<td><h:selectManyMenu value="#{modelCompte.courant.roles}" style="width:300px;">
-							<f:selectItem itemValue="ADMINISTRATEUR"
-								itemLabel="Administrateur" />
-							<f:selectItem itemValue="UTILISATEUR" itemLabel="Utilisateur" />
-							<f:selectItem itemValue="PARENT" itemLabel="Parent" />
-							<f:selectItem itemValue="NOUNOU" itemLabel="Nounou" />
-						</h:selectManyMenu> <br /> <h:message for="role" errorClass="error" /></td>
-				</tr>
+				
 			</table>
 
 			<br />

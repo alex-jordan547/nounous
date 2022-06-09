@@ -56,7 +56,7 @@ public class ServiceEnfant implements IServiceEnfant {
 	}
 
 	@Override
-	@TransactionAttribute(NOT_SUPPORTED)
+	@TransactionAttribute(REQUIRED)
 	public List<DtoEnfant> listerTout() {
 		List<DtoEnfant> liste = new ArrayList<>();
 		for (Enfant enfant : daoEnfant.listerTout()) {

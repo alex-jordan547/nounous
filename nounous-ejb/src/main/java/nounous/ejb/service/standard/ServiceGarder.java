@@ -46,7 +46,7 @@ public class ServiceGarder implements IServiceGarder {
 
 	@Override
 	public void supprimer(int idGarder) throws ExceptionValidation {
-	
+		daoGarder.supprimer(idGarder);
 	}
 
 	@Override

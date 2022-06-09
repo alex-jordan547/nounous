@@ -55,4 +55,13 @@ public class DaoContrat implements IDaoContrat{
 		var query = em.createQuery( jpql, Contrat.class );
 		return query.getResultList();
 	}	
+	
+	@Override
+	public List<Contrat> listerParNounous(int idNounou) {
+		em.clear();
+		var jpql = "SELECT c FROM Contrat c where c.nounou = :idN";
+		var query = em.createQuery( jpql, Contrat.class );
+		query.setParameter("idN", idNounou);
+		return query.getResultList();
+	}	
 }
