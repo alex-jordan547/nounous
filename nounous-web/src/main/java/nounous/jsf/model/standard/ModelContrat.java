@@ -42,7 +42,7 @@ public class ModelContrat implements Serializable {
 	private ModelEnfant modelEnfant;
 	@Inject
 	private ModelCompte modelCompte;
-	
+
 	@Inject
 	private ModelConnexion modelConnexion;
 	
@@ -106,8 +106,9 @@ public class ModelContrat implements Serializable {
 			if ( courant.getId() == null) {
 					modelEnfant.validerMiseAJour();
 					courant.setEnfant(modelEnfant.getCourant());
-					courant.setNounou(modelCompte.getNounou());
-				 	serviceContrat.inserer( mapper.map(courant) );
+					courant.setNounou(modelCompte.getNounou(modelConnexion.getCompteActif().getId()));
+				 serviceContrat.inserer( mapper.map(courant) );
+
 				
 			} else {
 				serviceContrat.modifier( mapper.map(courant) );

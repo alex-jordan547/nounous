@@ -40,12 +40,17 @@ public class ModelConnexion {
 	
 	// Actons
 	
+	public CompteActif getCompteActif() {
+		return compteActif;
+	}
+
+
 	public String connect() {
 	    
 	    DtoCompte dto = serviceConnexion.sessionUtilisateurOuvrir( courant.getPseudo(), courant.getMotDePasse() );
 	    
 	    if ( dto != null ){
-	    	courant.setId(dto.getId());
+	    	compteActif.setId(dto.getId());
 	    	
 //		    try {
 //			    ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
