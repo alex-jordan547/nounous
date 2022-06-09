@@ -57,7 +57,9 @@
 		<h:panelGroup rendered="#{compteActif.admininstrateur}">
 			<h:link class="nav-link #{view.viewId == '/pages/admin/categorie/liste.xhtml' ? 'active' : ''}" outcome="catégories" value="Catégories"  />
 			<h:link class="nav-link #{view.viewId == '/pages/admin/compte/liste.xhtml' ? 'active' : ''}" outcome="comptes" > <i class="far fa-user"></i> Comptes</h:link>
-			<h:link class="nav-link #{view.viewId == '/pages/admin/contrat/formulaire.xhtml' ? 'active' : ''}" outcome="formulaireParent" > <i class="fas fa-male"></i> Parents</h:link>
+			<h:link class="nav-link #{view.viewId == '/pages/admin/contrat/formulaire.xhtml' ? 'active' : ''}" outcome="formulaireParent" > <i class="fas fa-male"></i> Parents 1</h:link>
+			<h:link class="nav-link #{view.viewId == '/pages/admin/contrat/contrat_form.xhtml' ? 'active' : ''}" outcome="contrat_form" > <i class="fas fa-male"></i> Parents</h:link>
+			<h:link class="nav-link #{view.viewId == '/pages/admin/garde/lister.xhtml' ? 'active' : ''}" outcome="gardes" > <i class="fas fa-baby-carriage"></i> Gardes</h:link>
 		</h:panelGroup>
 		<h:commandLink class="nav-link" action="#{compteActif.disconnect()}" ><i class="fas fa-sign-out-alt "></i></h:commandLink>
 	</h:form>
