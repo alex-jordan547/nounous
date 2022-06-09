@@ -2,7 +2,6 @@ package nounous.jsf.model.standard;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import javax.ejb.EJB;
@@ -95,7 +94,6 @@ public class ModelCompte implements Serializable {
 			if ( courant.getId() == null) {
 				id = serviceCompte.inserer( mapper.map(courant) );
 				courant.setId(id);
-				courant.setRoles(Arrays.asList("PARENT"));
 				actualiserCourant();
 			} else {
 				serviceCompte.modifier( mapper.map(courant) );

@@ -33,8 +33,8 @@
    <to-view-id>/pages/admin/contrat/contrat_form.xhtml</to-view-id>
   </navigation-case>
   <navigation-case>
-   <from-outcome>contrats</from-outcome>
-   <to-view-id>/pages/admin/contrat/liste.xhtml</to-view-id>
+   <from-outcome>gardes</from-outcome>
+   <to-view-id>/pages/admin/garde/lister.xhtml</to-view-id>
   </navigation-case>
  </navigation-rule>
  <application/>

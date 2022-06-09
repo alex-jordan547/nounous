@@ -31,9 +31,9 @@
     NAME="output6" PATH="/pages/admin/contrat/contrat_form.xhtml"
     TARGET="rules:#pages#admin#contrat#contrat_form.xhtml"
     TITLE="contrat_form" model-entity="JSFProcessItemOutput"/>
-   <PROCESS-ITEM-OUTPUT ID="contrats::#pages#admin#contrat#liste.xhtml"
-    NAME="output7" PATH="/pages/admin/contrat/liste.xhtml"
-    TARGET="rules:#pages#admin#contrat#liste.xhtml" TITLE="contrats" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="gardes::#pages#admin#garde#lister.xhtml"
+    NAME="output7" PATH="/pages/admin/garde/lister.xhtml"
+    TARGET="rules:#pages#admin#garde#lister.xhtml" TITLE="gardes" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#connexion.xhtml" PATH="/connexion.xhtml"
@@ -43,14 +43,13 @@
  <PROCESS-ITEM NAME="rules:#pages#admin#categorie#liste.xhtml"
   PATH="/pages/admin/categorie/liste.xhtml" SHAPE="328,152,50,25" model-entity="JSFProcessGroup"/>
  <PROCESS-ITEM NAME="rules:#pages#info.xhtml" PATH="/pages/info.xhtml"
-  SHAPE="328,448,50,25" model-entity="JSFProcessGroup" persistent="true"/>
+  SHAPE="304,416,50,25" model-entity="JSFProcessGroup" persistent="true"/>
  <PROCESS-ITEM NAME="rules:#pages#admin#contrat#formulaire.xhtml"
-  PATH="/pages/admin/contrat/formulaire.xhtml" SHAPE="272,624,50,25"
+  PATH="/pages/admin/contrat/formulaire.xhtml" SHAPE="304,544,50,25"
   model-entity="JSFProcessGroup" persistent="true"/>
  <PROCESS-ITEM NAME="rules:#pages#admin#contrat#contrat_form.xhtml"
-  PATH="/pages/admin/contrat/contrat_form.xhtml" SHAPE="56,360,50,25"
-  model-entity="JSFProcessGroup" persistent="true"/>
- <PROCESS-ITEM NAME="rules:#pages#admin#contrat#liste.xhtml"
-  PATH="/pages/admin/contrat/liste.xhtml" SHAPE="53,504,0,0"
+  PATH="/pages/admin/contrat/contrat_form.xhtml" SHAPE="304,488,50,25" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#pages#admin#garde#lister.xhtml"
+  PATH="/pages/admin/garde/lister.xhtml" SHAPE="80,414,0,0"
   model-entity="JSFProcessGroup" persistent="true"/>
 </PROCESS>

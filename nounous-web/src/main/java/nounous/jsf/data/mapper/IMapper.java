@@ -9,6 +9,7 @@ import nounous.commun.dto.DtoCategorie;
 import nounous.commun.dto.DtoCompte;
 import nounous.commun.dto.DtoContrat;
 import nounous.commun.dto.DtoEnfant;
+import nounous.commun.dto.DtoGarder;
 import nounous.commun.dto.DtoNounou;
 import nounous.commun.dto.DtoParent;
 import nounous.commun.dto.DtoPersonne;
@@ -17,6 +18,7 @@ import nounous.jsf.data.Categorie;
 import nounous.jsf.data.Compte;
 import nounous.jsf.data.Contrat;
 import nounous.jsf.data.Enfant;
+import nounous.jsf.data.Garder;
 import nounous.jsf.data.Nounou;
 import nounous.jsf.data.Parent;
 import nounous.jsf.data.Personne;
@@ -78,6 +80,7 @@ public interface IMapper {
 	DtoEnfant map(Enfant source);
 
 	Enfant duplicate(Enfant source);
+	
 
 	// Contrat
 
@@ -94,5 +97,13 @@ public interface IMapper {
 	DtoNounou map(Nounou source);
 
 	Nounou duplicate(Nounou source);
+	
+	// Garder
+
+		Garder map(DtoGarder source);
+
+		DtoGarder map(Garder source);
+
+		Garder duplicate(Garder source);
 
 }

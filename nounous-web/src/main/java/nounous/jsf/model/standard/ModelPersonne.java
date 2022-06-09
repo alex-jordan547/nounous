@@ -77,7 +77,7 @@ public class ModelPersonne implements Serializable {
 	
 	public String validerMiseAJour() {
 		try {
-			if ( courant.getId() == null) {
+			if ( courant.getId() == null ) {
 				servicePersonne.inserer( mapper.map(courant) );
 			} else {
 				servicePersonne.modifier( mapper.map(courant) );

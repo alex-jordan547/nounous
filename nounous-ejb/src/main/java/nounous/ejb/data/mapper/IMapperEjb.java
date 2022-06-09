@@ -10,6 +10,7 @@ import nounous.commun.dto.DtoCategorie;
 import nounous.commun.dto.DtoCompte;
 import nounous.commun.dto.DtoContrat;
 import nounous.commun.dto.DtoEnfant;
+import nounous.commun.dto.DtoGarder;
 import nounous.commun.dto.DtoNounou;
 import nounous.commun.dto.DtoParent;
 import nounous.commun.dto.DtoPersonne;
@@ -18,6 +19,7 @@ import nounous.ejb.data.Categorie;
 import nounous.ejb.data.Compte;
 import nounous.ejb.data.Contrat;
 import nounous.ejb.data.Enfant;
+import nounous.ejb.data.Garder;
 import nounous.ejb.data.Nounou;
 import nounous.ejb.data.Parent;
 import nounous.ejb.data.Personne;
@@ -65,30 +67,41 @@ public interface IMapperEjb {
 
 	// Enfant
 
-	
+
 	Enfant map(DtoEnfant source);
-	@Mapping(target = "contrat",ignore = true)
+	
 	DtoEnfant map(Enfant source);
 
 	// Contrat
+	
+	
+		Contrat map( DtoContrat source );
+		
+		DtoContrat map( Contrat source );
+		
+		// Nounou
+		
+		
+		Nounou map( DtoNounou source );
+		
+		DtoNounou map( Nounou source );
+	
 
-	Contrat map(DtoContrat source);
-
-	DtoContrat map(Contrat source);
-
-	// Nounou
-
-	Nounou map(DtoNounou source);
-
-	DtoNounou map(Nounou source);
-
+		// Garder
+		
+		
+		Garder map( DtoGarder source );
+		
+		DtoGarder map( Garder source );
+	
+	
 	// Méthodes auxiliaires
-
-	@AfterMapping
-	public default void addBackReference(@MappingTarget Personne target) {
-		for (Telephone telephone : target.getTelephones()) {
-			telephone.setPersonne(target);
-		}
-	}
-
+	
+    @AfterMapping
+    public default void addBackReference(@MappingTarget Personne target) {
+        for (Telephone telephone : target.getTelephones() ) {
+        	telephone.setPersonne( target );
+        }
+    }	
+	
 }
