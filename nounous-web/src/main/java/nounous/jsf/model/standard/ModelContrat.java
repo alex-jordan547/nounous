@@ -46,6 +46,8 @@ public class ModelContrat implements Serializable {
 	@Inject
 	private ModelConnexion modelConnexion;
 	
+	@Inject
+	private ModelContrat modelContrat;
 	@EJB
 	private IServiceParent serviceParent;
 
@@ -66,11 +68,11 @@ public class ModelContrat implements Serializable {
 	public List<Contrat> getListeParNounou() {
 		
 		listeParNounou = new ArrayList<>();
-		for ( DtoContrat dto : serviceContrat.listerParNounous(2) ) {
-			liste.add( mapper.map( dto ) );
+		for ( DtoContrat dto : serviceContrat.listerParNounous(modelCompte.getNounou(modelConnexion.getCompteActif().getId()).getId()) ) {
+			listeParNounou.add( mapper.map( dto ) );
 	}
-	System.out.println(serviceContrat.listerTout());
-	return liste;
+	
+	return listeParNounou;
 }
 	
 	
@@ -113,10 +115,10 @@ public class ModelContrat implements Serializable {
 			} else {
 				serviceContrat.modifier( mapper.map(courant) );
 			}
-			UtilJsf.messageInfo( "Mise à jour effectuée avec succès." );
+			
 			return "contrats";
 		} catch (ExceptionValidation e) {
-			System.out.println(courant);
+			
 			UtilJsf.messageError(e);
 			return null;
 		}

@@ -8,11 +8,12 @@
      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
 
      <ui:define name="titre">Historique de garde</ui:define>
-     <hr/>
+    
 
     <ui:define name="contenu">
     
-<div class="row my-2 container">	
+<div class="row my-2 container ">	
+ <hr />
 	<ui:repeat value="#{modelGarder.liste}" var="item"> 
 	
 <div class="card mb-3 col-6 mx-1 hover-shadow bg-light" style="max-width: 500px;">
@@ -25,7 +26,8 @@
       />
     </div>
     <div class="col-md-8">
-      <div class="card-body">
+      <div class="card-body position relative">
+      <h:outputText rendered="#{item.AMange}"  class="position-absolute top-0 start-50 translate-middle badge rounded-pill bg-warning" value="A pris un repas" />
         <h5 class="card-title">Contrat N°#{item.id} </h5>
         <p class="card-text">
        	<span class="badge badge-dark fs-4 text-light">#{item.contrat.enfant.firstname} #{item.contrat.enfant.lastname} </span>
@@ -37,7 +39,7 @@
         <p class="card-text">
           <small class="text-muted">De #{item.heureDebut} à #{item.heureFin} </small>
         </p>
-        <h:link class="btn btn-dark btn-block" value="Gérer" outcome="formulaire?id=#{item.id}"/> 
+        <h:link class="btn btn-dark btn-block hover-shadow" value="Gérer" outcome="formulaire?id=#{item.id}"/> 
       </div>
      
       		
@@ -49,7 +51,7 @@
 	</ui:repeat>
 	
 </div>
-<h:link class="btn btn-dark text-center mb-3" value="Ajouter une garde" outcome="new"/>
+<h:link class="btn btn-dark text-center mb-3 hover-shadow" value="Ajouter une garde" outcome="new"/>
 
 	</ui:define>
 

@@ -12,85 +12,61 @@
 		<f:viewAction action="#{modelContrat.actualiserCourant()}" />
 	</f:metadata>
 
-	<ui:define name="titre">Enregistrement 
-	du contrat</ui:define>
+	<ui:define name="titre">Etape 2 : Enregistrement du contrat</ui:define>
 
 	<ui:define name="contenu">
+	
+			<h:form class="mt-4 w-75">
 
-		<h:form>
+ <div class="row ">
+	<div class="form-outline mb-4 col mx-1">
+				<h:inputText class="form-control"  value="#{modelEnfant.courant.firstname}"  />
+				<label class="form-label">Nom Enfant</label>
+	</div>
+	<div class="form-outline mb-4 col mx-1">
+				<h:inputText class="form-control"  value="#{modelEnfant.courant.lastname}"  />
+				<label class="form-label">Prénom Enfant</label>
+	</div>
+	<div class="form-outline mb-4 col mx-1">
+				<h:inputText a:type="date" class="form-control"  value="#{modelEnfant.courant.dateNaissance}">
+				<f:convertDateTime pattern="yyyy-MM-dd" />
+				</h:inputText>
+				<label class="form-label">Date de naissance</label>
+	</div>
+	</div>
+	
+	<div class="row ">
+	
+	<div class="form-outline mb-4 col mx-1">
+				<h:inputText a:type="date" class="form-control"  value="#{modelContrat.courant.dateDebut}">
+				<f:convertDateTime pattern="yyyy-MM-dd" />
+				</h:inputText>
+				<label class="form-label">Date debut</label>
+	</div>
+	<div class="form-outline mb-4 col mx-1">
+				<h:inputText a:type="date" class="form-control"  value="#{modelContrat.courant.dateFin}">
+				<f:convertDateTime pattern="yyyy-MM-dd" />
+				</h:inputText>
+				<label class="form-label">Date de fin </label>
+	</div>
+	</div>
+	
+	<div class="row ">
+	<div class="form-outline mb-4 col mx-1">
+				<h:inputText class="form-control"  value="#{modelContrat.courant.tarifHoraire}"  />
+				<label class="form-label">Tarif / heure</label>
+	</div>
+	<div class="form-outline mb-4 col mx-1">
+				<h:inputText class="form-control"  value="#{modelContrat.courant.indemRepas}"  />
+				<label class="form-label">Indemnité de repas</label>
+	</div>
+	</div>
 
-			<table class="form">
-				<tr>
-					<td><h:outputLabel for="id">Id :</h:outputLabel></td>
-					<td><h:inputText id="id" size="5" readonly="true"
-							value="#{modelContrat.courant.id}" /> <br /> <h:message
-							for="id" errorClass="error" /></td>
-				</tr>
-				<tr>
-					<td><h:outputLabel for="idP">Id Parent :</h:outputLabel></td>
-					<td><h:inputText id="idP" size="5" readonly="true"
-							value="#{modelParent.courant.id}" /> <br /> <h:message
-							for="idP" errorClass="error" /></td>
-				</tr>
-				<tr>
-					<td><h:outputLabel for="firstname">Firstname enfant:</h:outputLabel>
-					</td>
-					<td><h:inputText id="firstname" size="25"
-							value="#{modelEnfant.courant.firstname}" /> <br /> <h:message
-							for="firstname" errorClass="error" /></td>
-				</tr>
-				<tr>
-					<td><h:outputLabel for="lastname">Lastname enfant:</h:outputLabel></td>
-					<td><h:inputText id="lastname" size="25"
-							value="#{modelEnfant.courant.lastname}" /> <br /> <h:message
-							for="lastname" errorClass="error" /></td>
-				</tr>
-				<tr>
-					<td><h:outputLabel for="dateNaissance">Date de naissance :</h:outputLabel></td>
-					<td><h:inputText a:type="date" value="#{modelEnfant.courant.dateNaissance}">
-							<f:convertDateTime pattern="yyyy-MM-dd" />
-						</h:inputText><br /> <h:message
-							for="dateNaissance" errorClass="error" /></td>
-				</tr>
-				<tr>
-					<td><h:outputLabel for="dateDebut">Date de debut :</h:outputLabel></td>
-					<td>
-					<h:inputText a:type="date" value="#{modelContrat.courant.dateDebut}">
-							<f:convertDateTime pattern="yyyy-MM-dd" />
-						</h:inputText> <br />
-						<h:message for="dateDebut" errorClass="error" /></td>
-				</tr>
-
-				<tr>
-					<td><h:outputLabel for="dateFin">Date de fin :</h:outputLabel></td>
-					<td>
-					<h:inputText a:type="date" value="#{modelContrat.courant.dateFin}">
-							<f:convertDateTime pattern="yyyy-MM-dd" />
-						</h:inputText>
-					 <br /> <h:message
-							for="dateFin" errorClass="error" /></td>
-				</tr>
-				<tr>
-					<td><h:outputLabel for="tarifHoraire">Tarif Horaire :</h:outputLabel></td>
-					<td><h:inputText id="tarifHoraire" size="25"
-							value="#{modelContrat.courant.tarifHoraire}" /> <br /> <h:message
-							for="tarifHoraire" errorClass="error" /></td>
-				</tr>
-				<tr>
-					<td><h:outputLabel for="indemRepas">Indemnisation repas :</h:outputLabel></td>
-					<td><h:inputText id="indemRepas" size="25"
-							value="#{modelContrat.courant.indemRepas}" /> <br /> <h:message
-							for="indemRepas" errorClass="error" /></td>
-				</tr>
-
-			</table>
-
-			<br />
-			<h:commandButton value="Valider"
-				action="#{modelContrat.validerMiseAJour()}" />
-			<h:button value="Retour" outcome="comptes" />
+	<div class="row ">
+			<h:commandButton class="btn  btn-dark " action="#{modelContrat.validerMiseAJour()}" value="Créer le contrat">
+			</h:commandButton>
+	</div>
 		</h:form>
-
 	</ui:define>
 
 </ui:composition>

@@ -51,7 +51,7 @@ public class DaoGarder implements IDaoGarder{
 	@Override
 	public List<Garder> listerTout() {
 		em.clear();
-		var jpql = "SELECT g FROM Garder g";
+		var jpql = "SELECT g FROM Garder g ORDER BY g.contrat.enfant.firstname";
 		var query = em.createQuery( jpql, Garder.class );
 		return query.getResultList();
 	}	

@@ -95,7 +95,7 @@ public class ModelParent implements Serializable {
 				serviceParent.modifier( mapper.map(courant) );
 				modelCompte.validerMiseAJour();
 			}
-			UtilJsf.messageInfo( "Mise à jour effectuée avec succès." );
+			
 			return "contrat_form";
 		} catch (ExceptionValidation e) {
 			UtilJsf.messageError(e);

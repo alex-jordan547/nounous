@@ -35,9 +35,9 @@
 <ui:debug hotkey="x" rendered="#{initParam['javax.faces.PROJECT_STAGE'] == 'Development'}"/>
 <div id="body">
 
-<div class="navbar navbar-expand-lg navbar-dark bg-dark mb-5" >
+<div class="navbar navbar-expand-lg navbar-dark bg-dark mb-4 shadow-5-strong" >
   <div class="container-fluid">
-    <h:link outcome="comptes"  class="navbar-brand" ><i class="fas fa-baby text-light"></i> &nbsp; Nounous</h:link>
+    <h:link outcome="info"  class="navbar-brand" ><i class="fas fa-baby text-light"></i> &nbsp; Nounous</h:link>
     <button
       class="navbar-toggler"
       type="button"
@@ -55,12 +55,25 @@
       <h:form rendered="#{compteActif.loggedIn}" class="b-inherit">
 		<h:link class="nav-link #{view.viewId == '/pages/user/personne/liste.xhtml' ? 'active' : ''}" outcome="personnes" value="Personnes" rendered="#{compteActif.utilisateur }" />
 		<h:panelGroup rendered="#{compteActif.nounou}">
-			<h:link class="nav-link #{view.viewId == '/pages/admin/categorie/liste.xhtml' ? 'active' : ''}" outcome="catégories" value="Catégories"  />
+			<h:link class="nav-link #{view.viewId == '/pages/admin/contrat/liste.xhtml' ? 'active' : ''}" outcome="contrats"  ><i class="fas fa-file-signature text-light"></i> Contrats</h:link>
 			<h:link class="nav-link #{view.viewId == '/pages/admin/compte/liste.xhtml' ? 'active' : ''}" outcome="comptes" > <i class="fas fa-user text-light"></i> Comptes</h:link>
-			<h:link class="nav-link #{view.viewId == '/pages/admin/contrat/contrat_form.xhtml' ? 'active' : ''}" outcome="contrat_form" > <i class="fas fa-male text-light"></i> Parents</h:link>
+			<h:link class="nav-link #{view.viewId == '/pages/admin/contrat/formulaire.xhtml' ? 'active' : ''}" outcome="formulaireParent" > <i class="fas fa-male text-light"></i> Parents</h:link>
 			<h:link class="nav-link #{view.viewId == '/pages/admin/garde/lister.xhtml' ? 'active' : ''}" outcome="gardes" > <i class="fas fa-baby-carriage text-light"></i> Gardes</h:link>
 		</h:panelGroup>
+		
 		<h:commandLink class="nav-link" action="#{compteActif.disconnect()}" ><i class="fas fa-sign-out-alt text-light "></i></h:commandLink>
+		<li class="nav-item me-3 me-lg-1 ml-auto">
+        <a class="nav-link d-sm-flex align-items-sm-center" href="#">
+          <img
+            src="https://mdbcdn.b-cdn.net/img/new/avatars/1.webp"
+            class="rounded-circle"
+            height="22"
+            alt="Black and White Portrait of a Man"
+            loading="lazy"
+          />
+          <strong class="d-none d-sm-block ms-1 text-light">#{compteActif.pseudo}</strong>
+        </a>
+      </li>
 	</h:form>
 	
       </div>
@@ -68,7 +81,7 @@
   </div>
 </div>
 
-<div id="header" class="bg-dark">
+<div id="header" class="bg-dark shadow-5-strong">
 	<h:outputText value="&nbsp;" rendered="#{not compteActif.loggedIn}" />
 	<h:form rendered="#{compteActif.loggedIn}">
 		<h:link outcome="personnes" value="Personnes" rendered="#{compteActif.utilisateur }" />

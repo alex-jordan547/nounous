@@ -3,74 +3,83 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
-	template="/template/page-standard.xhtml">
+	template="/template/page-standard.xhtml"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
 
 	<ui:define name="titre">Liste des contrats</ui:define>
 
 	<ui:define name="contenu">
-
 		<h:form>
 
-			<h:dataTable styleClass="liste" value="#{modelContrat.liste}"
-				var="item" rowClasses="impair, pair"
-				columnClasses="left,left,center">
+			<h:dataTable class="table table-hover align-middle mb-0 bg-white"  value="#{modelContrat.liste}"
+				var="item" 
+				>
 				<h:column>
-					<f:facet name="header">
+					<f:facet name="header" >
 						<h:outputText value="id" />
 					</f:facet>
 				#{item.id}
+			  </h:column>
+
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Debut" />
+					</f:facet>
+					<h:outputText  a:type="date"  value="#{item.dateDebut}">
+						<f:convertDateTime pattern="yyyy-MM-dd" />
+				</h:outputText>
+				
 			</h:column>
 
 				<h:column>
 					<f:facet name="header">
-						<h:outputText value="date debut" />
+						<h:outputText value="fin" />
 					</f:facet>
-				#{item.dateDebut}
-			</h:column>
-
-				<h:column>
-					<f:facet name="header">
-						<h:outputText value="date fin" />
-					</f:facet>
-				#{item.dateFin}
+					<h:outputText  a:type="date"  value="#{item.dateFin}">
+						<f:convertDateTime pattern="yyyy-MM-dd" />
+				</h:outputText>
+				
 			</h:column>
 			<h:column>
 					<f:facet name="header">
 						<h:outputText value="tarif Horaire" />
 					</f:facet>
-				#{item.tarifHoraire}
+				#{item.tarifHoraire} €/h
 			</h:column>
 			
 			<h:column>
 					<f:facet name="header">
 						<h:outputText value="tarif Horaire" />
 					</f:facet>
-				#{item.indemRepas}
+				#{item.indemRepas} €
 			</h:column>
 			
 			<h:column>
 					<f:facet name="header">
-						<h:outputText value="nom enfant" />
+						<h:outputText value="Enfant" />
 					</f:facet>
-				#{item.enfant.firstname} #{item.enfant.lastname}
+					<h:outputText class="text-success" value="#{item.enfant.firstname}" /> <h:outputText class="text-success" value="#{item.enfant.lastname}" />  
 			</h:column>
 			
 				<h:column>
 					<f:facet name="header">
-						<h:outputText value="date naissance enfant" />
+						<h:outputText value="Birth enfant" />
 					</f:facet>
-				#{item.enfant.dateNaissance}
+					<h:outputText  a:type="date"  value="#{item.enfant.dateNaissance}">
+						<f:convertDateTime pattern="yyyy-MM-dd" />
+				</h:outputText>
+				
 			</h:column>
 			
 				<h:column>
 					<f:facet name="header">
-						<h:outputText value="nom du parent" />
+						<h:outputText value="Parent" />
 					</f:facet>
-				#{item.enfant.parent.firstname} #{item.enfant.parent.lastname} 
+				<h:outputText class="text-success" value="#{item.enfant.parent.firstname}" /> <h:outputText class="text-success" value="#{item.enfant.parent.lastname}" />  
 			</h:column>
 			<h:column>
 					<f:facet name="header">
-						<h:outputText value="telephone" />
+						<h:outputText value="Telephone" />
 					</f:facet>
 				#{item.enfant.parent.phone} 
 			</h:column>
@@ -79,7 +88,7 @@
 			</h:dataTable>
 
 			<br />
-			<h:button value="Ajouter" outcome="formulaire" />
+			<h:button class="btn btn-dark text-center mb-3" value="Ajouter un contrat" outcome="formulaireParent" />
 
 		</h:form>
 

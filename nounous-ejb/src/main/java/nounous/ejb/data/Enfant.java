@@ -1,6 +1,7 @@
 package nounous.ejb.data;
 
 import java.time.LocalDate;
+import java.time.Year;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -41,6 +42,7 @@ public class Enfant {
 	private Parent parent;
 	@OneToOne(mappedBy = "enfant")
 	private Contrat contrat;
+	
 	
 
 }

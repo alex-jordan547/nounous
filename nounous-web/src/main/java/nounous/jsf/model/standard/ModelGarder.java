@@ -41,12 +41,11 @@ public class ModelGarder implements Serializable {
 	// Getters 
 	
 	public List<Garder> getListe() {
-		if ( liste == null ) {
+		
 			liste = new ArrayList<>();
 			for ( DtoGarder dto : serviceGarder.listerTout() ) {
 				liste.add( mapper.map( dto ) );
 			}
-		}
 		
 		return liste;
 	}
@@ -81,13 +80,9 @@ public class ModelGarder implements Serializable {
 	public String validerMiseAJour() {
 		try {
 			if ( courant == null) {
-
-				System.out.println(courant.getHeureDebut());
 				serviceGarder.inserer( mapper.map(courant) );
 			} else {
-				System.out.println(courant.getHeureDebut());
 				serviceGarder.modifier( mapper.map(courant) );
-				
 			}
 			UtilJsf.messageInfo( "Mise à jour effectuée avec succès." );
 			return "gardes";

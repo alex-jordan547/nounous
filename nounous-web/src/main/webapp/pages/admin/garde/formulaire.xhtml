@@ -16,7 +16,7 @@
 				</h:outputText> pour #{modelGarder.courant.contrat.enfant.firstname}</ui:define>
 
     <ui:define name="contenu">
-  <h:form class="mt-4 w-50">
+  <h:form class="mt-4 mb-5 w-50">
   <div class="row ">
 	<div class="form-outline mb-4">
 				<h:inputText class="form-control"  value="#{modelGarder.courant.contrat.enfant.toString()}"  readonly="true"/>
@@ -41,6 +41,14 @@
 				<h:inputText a:type="time" pattern="hh:ss" class="form-control"  value="#{modelGarder.courant.heureFin}"/>
 				<label class="form-label">Heure Fin</label>
 	</div>
+	
+	</div>
+	<div class="row">
+	<div class="form-outline mb-4">
+	<h:selectBooleanCheckbox class="form-check-input" value="#{modelGarder.courant.AMange}"></h:selectBooleanCheckbox >
+	
+    <label class="form-label" for="flexCheckDefault">Repas</label>
+	</div>
 	</div>
 	<div class="row ">
 			<h:commandButton class="btn  btn-dark btn-block " action="#{modelGarder.validerMiseAJour()}" value="Editer">
@@ -52,7 +60,6 @@
 			</h:commandButton>
 		</div>
 	</h:form>
-	
 	
 
 	</ui:define>

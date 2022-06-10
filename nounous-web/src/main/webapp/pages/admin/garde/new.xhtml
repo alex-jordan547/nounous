@@ -6,10 +6,7 @@
      xmlns:ui="http://java.sun.com/jsf/facelets"
      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
 
-	 <f:metadata>
-		 <f:viewParam name="id" value="#{modelGarder.courant.id}" />
-		 <f:viewAction action="#{modelGarder.actualiserCourant()}" />
-	 </f:metadata>
+	
 
     <ui:define name="titre">Nouvelle Garde</ui:define>
 
@@ -45,8 +42,15 @@
 				<label class="form-label">Heure Fin</label>
 	</div>
 	</div>
+		<div class="row">
+	<div class="form-outline mb-4">
+	<h:selectBooleanCheckbox class="form-check-input" value="#{modelGarder.courant.AMange}"></h:selectBooleanCheckbox >
+	
+    <label class="form-label" for="flexCheckDefault">Repas</label>
+	</div>
+		</div>
 	<div class="row ">
-			<h:commandButton class="btn  btn-dark btn-block " action="#{modelGarder.validerMiseAJour()}" value="Editer">
+			<h:commandButton class="btn  btn-dark btn-block " action="#{modelGarder.validerMiseAJour()}" value="Ajouter">
 			</h:commandButton>
 		<h:button class="btn  btn-warning btn-block " value="Retour" outcome="gardes" />
 		</div>

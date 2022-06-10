@@ -9,14 +9,39 @@
 	<f:viewAction action="#{utilJsf.messageFromRequestAttribute()}" />
 </f:metadata>
 
-     <ui:define name="titre">#{modelInfo.titre}</ui:define>
+     <ui:define name="titre">Bienvenu sur Baby Care "Nounous"</ui:define>
 
     <ui:define name="contenu">
-
-	<br />
-	<div>#{modelInfo.texte}</div>
-	<br />
-	<br />
+   <div class="row">
+<div class="col-6  p-5">
+  <img
+    src="#{resource['images:3.jpg']}"
+    class="img-fluid rounded hover-shadow"
+    alt="Hollywood Sign on The Hill"
+  />
+</div>
+<div class="col-6  p-5 ">
+  <img
+    src="#{resource['images:2.jpg']}"
+    class="img-fluid rounded hover-shadow"
+    alt="Hollywood Sign on The Hill"
+  />
+</div>
+<div class="col-6  p-5 ">
+  <img
+    src="#{resource['images:1.jpg']}"
+    class="img-fluid rounded hover-shadow"
+    alt="Hollywood Sign on The Hill"
+  />
+</div>
+<div class="col-6  p-5 ">
+  <img
+    src="#{resource['images:4.jpg']}"
+    class="img-fluid rounded hover-shadow"
+    alt="Hollywood Sign on The Hill"
+  />
+</div>
+</div>
 
 	</ui:define>
 
